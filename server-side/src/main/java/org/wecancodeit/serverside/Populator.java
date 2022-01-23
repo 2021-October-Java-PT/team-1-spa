@@ -10,4 +10,4 @@ public class Populator {
     ProgrammingLanguage blockyGames = new ProgrammingLanguage("BlockyGames", "Blocky offers a variety of games adopting the approach of teaching kids how to code using interactive challenges", "https://blockly.games");
     ProgrammingLanguage crunchzilla = new ProgrammingLanguage("crunchzilla", "Crunchzilla is one of the simplest teaching platforms when it comes to boosting your kids' knowledge of coding.", "http://www.crunchzilla.com/code-monster");
 
-
+}
