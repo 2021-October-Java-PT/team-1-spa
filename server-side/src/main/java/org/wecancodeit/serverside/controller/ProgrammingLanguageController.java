@@ -5,17 +5,17 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.wecancodeit.serverside.repository.LanguageRepository;
+import org.wecancodeit.serverside.repository.ProgrammingLanguageRepository;
 import org.wecancodeit.serverside.model.ProgrammingLanguage;
 
 import javax.annotation.Resource;
 import java.util.Collection;
 
 @Controller
-public class LanguageController {
+public class ProgrammingLanguageController {
 
     @Resource
-    private LanguageRepository languageRepo;
+    private ProgrammingLanguageRepository languageRepo;
 
     @PostMapping("/api/coding/add-programming-language")
     public Collection<ProgrammingLanguage> addItem(@RequestBody String body) throws JSONException {

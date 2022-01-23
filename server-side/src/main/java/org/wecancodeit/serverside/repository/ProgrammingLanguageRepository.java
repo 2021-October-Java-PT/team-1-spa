@@ -5,6 +5,6 @@ import org.wecancodeit.serverside.model.ProgrammingLanguage;
 
 import java.util.Optional;
 
-public interface LanguageRepository extends CrudRepository<ProgrammingLanguage, Long> {
+public interface ProgrammingLanguageRepository extends CrudRepository<ProgrammingLanguage, Long> {
     Optional<ProgrammingLanguage> findByName(String languageName);
 }
