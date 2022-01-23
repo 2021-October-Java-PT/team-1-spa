@@ -12,3 +12,6 @@ This application contains both `server side` and `client side` functionality.
 - Execute an `npm install` in this `client-side` folder in order to install the front end dependencies
 - `npm start` should spin up a server at `localhost:1234`
 - Inspect the browser and you should see a log statement verifying the front end is wired up
+
+
+- test commit line
