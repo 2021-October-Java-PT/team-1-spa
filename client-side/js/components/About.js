@@ -2,6 +2,7 @@ import Nicole from "../../images/Nicole.jpg";
 import gitHubImg from "../../images/GitHub.png";
 import linkedInImg from "../../images/LinkedIn.png";
 
+//test
 export default function About() {
   return `
     <div class="container-fluid api-button text-center">    
