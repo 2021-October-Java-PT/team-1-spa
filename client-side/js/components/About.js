@@ -1,8 +1,8 @@
+import Lyzz from "../../images/Lyzz.png";
 import Nicole from "../../images/Nicole.jpg";
 import gitHubImg from "../../images/GitHub.png";
 import linkedInImg from "../../images/LinkedIn.png";
 
-//test
 export default function About() {
   return `
     <div class="container-fluid api-button text-center">    
@@ -10,7 +10,7 @@ export default function About() {
     <main class="bios">
         <section id="lyzzhans">
             <h2>Lyzz Hans</h2>
-            <img class="headshot" src="" alt="Headshot" />
+            <img class="headshot" src="${Lyzz}" alt="Headshot" />
             <p class>
                
             </p>
@@ -42,10 +42,10 @@ export default function About() {
           <p class>
             
           </p>
-          <a id="github" href="">
+          <a id="github" href="https://github.com/madison-mitchell">
             <img  id="github" src="${gitHubImg}" alt="github" />
           </a>
-          <a id="linkedin" href="">
+          <a id="linkedin" href="http://linkedin.com/in/madison-r-mitchell">
             <img id="linkedin" src="${linkedInImg}" alt="linkedin" />
           </a>
         </section>
@@ -55,10 +55,10 @@ export default function About() {
           <p class>
             
           </p>
-          <a id="github" href="">
+          <a id="github" href="https://github.com/DiaS793">
             <img  id="github" src="${gitHubImg}" alt="github" />
           </a>
-          <a id="linkedin" href="">
+          <a id="linkedin" href="https://linkedin.com/in/dia-scruggs/">
             <img id="linkedin" src="${linkedInImg}" alt="linkedin" />
           </a>
         </section>
