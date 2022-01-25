@@ -55,3 +55,12 @@ body {
   .navbar-nav  li a:hover {
     color: #1abc9c !important;
   }
+
+#github,
+#linkedin{
+    height: 25px;
+}
+
+.headshot {
+  height: 200px;
+}
