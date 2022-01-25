@@ -7,6 +7,10 @@
   height: auto;
 }
 
+#background{
+  background-image:url("images\banner.png");
+}
+
 input[type="text"] textarea {
   width: 100%;
   padding: 12px;
@@ -17,6 +21,14 @@ input[type="text"] textarea {
   margin-bottom: 16px;
   resize: vertical;
   background-color: #a27a23;
+}
+
+#fname{
+  float:left;
+}
+
+#lname{
+  float:right;
 }
 
 input[type="submit"] {
@@ -42,9 +54,11 @@ h1 {
 }
 
 #box {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
+
+  display: grid;
   color: white;
   border-radius: 5px;
   background-color: #3c4a8b;
