@@ -1,66 +1,114 @@
 body {
-    font: 20px Mukta, libre;
-    line-height: 1.8;
-    color: #f5f6f7;
-  }
-  p {font-size: 16px;}
-  .margin {margin-bottom: 45px;}
-  .banner { 
-    background-color: #8b97fd; 
-    color: #ffffff;
-    text-align: center;
-  }
-  .banner .sticker{
-      width: 100%;
-      height: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-  }
-  .banner h3{
-    color: #ffdf2b;
-    font-weight: 600;
-    font-size: 75px;
-    margin: 10px 0 15px 0;
-  }
-  
-  .api-button { 
-    background-color: #ffffff; 
-    color: #555555;
-  }
-  .api-button h3{
-    font-weight: 600;
-    font-size: 50px;
-    margin: 10px 0 15px 0;
-  }
-  .row{
-      margin-top: 50px;
-  }
-  .ftr { 
-    background-color: #8b97fd; 
-    color: #fff;
-  }
-  .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    letter-spacing: 5px;
-  }
-  .navbar-nav  li a:hover {
-    color: #1abc9c !important;
-  }
+  font: 20px Mukta, libre;
+  line-height: 1.8;
+  color: #f5f6f7;
+}
+p {
+  font-size: 16px;
+}
+.margin {
+  margin-bottom: 45px;
+}
+.banner {
+  background-color: #8b97fd;
+  color: #ffffff;
+  text-align: center;
+}
+.banner .sticker {
+  width: 100%;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.banner h3 {
+  color: #ffdf2b;
+  font-weight: 600;
+  font-size: 75px;
+  margin: 10px 0 15px 0;
+}
+
+.api-button {
+  background-color: #ffffff;
+  color: #555555;
+}
+.api-button h3 {
+  font-weight: 600;
+  font-size: 50px;
+  margin: 10px 0 15px 0;
+}
+.row {
+  margin-top: 50px;
+}
+.ftr {
+  background-color: #8b97fd;
+  color: #fff;
+}
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  letter-spacing: 5px;
+}
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
+}
 
 #github,
-#linkedin{
-    height: 25px;
+#linkedin {
+  height: 25px;
 }
 
 .headshot {
   height: 200px;
+}
+
+/* Dia's */
+
+@media screen and (min-width: 760px) {
+  .box {
+    border-radius: 5px;
+    background-color: #8b97fd;
+    padding: 20px;
+    border-radius: 3rem;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .boxContact {
+    background-color: white;
+    color: black;
+    padding: -2px;
+    font-size: 150%;
+  }
+
+  .wrapperContact {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 0.5rem;
+  }
+
+  .box2Contact {
+    grid-template-columns: 1/6;
+  }
+
+  .box3Contact {
+    float: left;
+    grid-column: 1/6;
+  }
+
+  .box4Contact {
+    grid-column: 1/6;
+  }
+
+  .box5Contact {
+    grid-column: 1/6;
+  }
 }
