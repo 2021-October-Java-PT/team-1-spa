@@ -1,4 +1,5 @@
 import Dia from "../../images/Dia.jpg";
+import Jo from "../../images/Josephine.png";
 import Lyzz from "../../images/Lyzz.png";
 import Madison from "../../images/Madison1.jpg";
 import Nicole from "../../images/Nicole1.png";
@@ -72,14 +73,16 @@ export default function About() {
         </section>
         <section id="josephinewilson">
           <h2>Josephine Wilson</h2>
-          <img class="headshot" src="" alt="Headshot" />
-          <p class>
-            
+          <img class="headshot" src="${Jo}" alt="Headshot" />
+          <p class>Genuinely curious and quality-driven developer offering a strong foundation in software engineering and website development. 
+          Experienced in creating high-quality designs and build into a functioning browser compatible website using object-oriented programming, 
+          test driven development, Java, HTML, CSS, JavaScript, WordPress, search engine optimization, and search engine marketing.
+          When I'm not coding, I'm out in the woods hiking or fishing.            
           </p>
-          <a id="github" href="">
+          <a id="github" href="https://github.com/JPWilson2021">
             <img  id="github" src="${gitHubImg}" alt="github" />
           </a>
-          <a id="linkedin" href="">
+          <a id="linkedin" href="https://linkedin.com/in/jpwilson2021/">
             <img id="linkedin" src="${linkedInImg}" alt="linkedin" />
           </a>
         </section>        
