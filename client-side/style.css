@@ -1,66 +1,192 @@
 body {
-    font: 20px Mukta, libre;
-    line-height: 1.8;
-    color: #f5f6f7;
-  }
-  p {font-size: 16px;}
-  .margin {margin-bottom: 45px;}
-  .banner { 
-    background-color: #8b97fd; 
-    color: #ffffff;
-    text-align: center;
-  }
-  .banner .sticker{
-      width: 100%;
-      height: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-  }
-  .banner h3{
-    color: #ffdf2b;
+  font: 20px Mukta, libre;
+  line-height: 1.8;
+  color: #f5f6f7;
+}
+
+p {
+  font-size: 16px;
+}
+
+.margin {
+  margin-bottom: 45px;
+}
+
+.banner {
+  background-color: #8b97fd;
+  color: #ffffff;
+  text-align: center;
+}
+
+.banner .sticker {
+  width: 100%;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner h3 {
+  color: #ffdf2b;
+  font-weight: 600;
+  font-size: 75px;
+  margin: 10px 0 15px 0;
+}
+
+.api-button {
+  background-color: #ffffff;
+  color: #555555;
+}
+
+.api-button h3 {
+  font-weight: 600;
+  font-size: 50px;
+  margin: 10px 0 15px 0;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+.ftr {
+  background-color: #8b97fd;
+  color: #fff;
+}
+
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
+}
+
+#github,
+#linkedin {
+  height: 25px;
+}
+
+.headshot {
+  height: 200px;
+}
+
+/* Dia's */
+
+@media screen and (min-width: 760px) {
+
+  .feedBack{
     font-weight: 600;
     font-size: 75px;
-    margin: 10px 0 15px 0;
+    margin-bottom: 9rem;
+  }
+
+  .box {
+    font: 20px Mukta, libre;
+    border-radius: 5px;
+    background-color: #8b97fd;
+    padding: 20px;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    
+    
+
+  .vid-cont{
+    background-color: white;
   }
   
   .api-button { 
     background-color: #ffffff; 
     color: #555555;
+
   }
-  .api-button h3{
-    font-weight: 600;
-    font-size: 50px;
-    margin: 10px 0 15px 0;
+
+  .boxContact {
+    background-color: white;
+    color: black;
+    padding: -2px;
+    font-size: 150%;
   }
-  .row{
-      margin-top: 50px;
+
+  .wrapperContact {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 0.5rem;
+    position: relative;
   }
+  
+  .image-responsive{
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 25px;
+  }
+  
+  .hover-effect{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .col-sm-4:hover .image-responsive{
+    opacity: 0.3;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    z-index: -1;
+  }
+  
+  .col-sm-4:hover .hover-effect{
+    opacity: 1;
+  }
+  
+  .hover-text {
+    background-color: white;
+    color: #000000;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
   .ftr { 
     background-color: #8b97fd; 
     color: #fff;
   }
-  .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 16px;
-    letter-spacing: 5px;
-  }
-  .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+
+  .box2Contact {
+    grid-template-columns: 1/6;
   }
 
-#github,
-#linkedin{
-    height: 25px;
-}
+  .box3Contact {
+    float: left;
+    grid-column: 1/6;
+  }
 
-.headshot {
-  height: 200px;
+  .box4Contact {
+    grid-column: 1/6;
+  }
+
+  .box5Contact {
+    grid-column: 1/6;
+  }
+
+  .para{
+    font-size: 3rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+  }
 }

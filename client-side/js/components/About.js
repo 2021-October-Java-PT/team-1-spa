@@ -9,7 +9,7 @@ import linkedInImg from "../../images/LinkedIn.png";
 export default function About() {
   return `
     <div class="container-fluid api-button text-center">    
-    <h3 class="margin" id="">ABOUT US</h3><br>
+    <h3 class="margin" id="title">ABOUT US</h3><br>
     <main class="bios">
         <section id="lyzzhans">
             <h2>Lyzz Hans</h2>
