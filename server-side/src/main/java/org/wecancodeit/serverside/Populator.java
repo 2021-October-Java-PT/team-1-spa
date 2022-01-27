@@ -1,14 +1,13 @@
 package org.wecancodeit.serverside;
 
 import org.springframework.stereotype.Component;
-import org.wecancodeit.serverside.models.ProgrammingResource;
 import org.springframework.boot.CommandLineRunner;
+import org.wecancodeit.serverside.models.ProgrammingResource;
 import org.wecancodeit.serverside.repositories.ProgrammingResourceRepository;
 
 import javax.annotation.Resource;
 
 @Component
-
 public class Populator implements CommandLineRunner {
 
     @Resource

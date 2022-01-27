@@ -22,6 +22,9 @@ body {
     font-size: 75px;
     margin: 10px 0 15px 0;
   }
+  .vid-cont{
+    background-color: white;
+  }
   
   .api-button { 
     background-color: #ffffff; 
