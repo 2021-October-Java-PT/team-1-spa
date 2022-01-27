@@ -32,6 +32,7 @@ function navContact() {
   });
 }
 
+//Madison's Function
 function navTechnology() {
   const technologyElem = document.querySelector("#technologyTile");
   technologyElem.addEventListener("click", () => {
