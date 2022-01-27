@@ -1,4 +1,4 @@
-package org.wecancodeit.serverside.model;
+package org.wecancodeit.serverside.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 @Entity
-public class ProgrammingLanguage {
+public class ProgrammingResource {
     @Id
     @GeneratedValue
     private Long id;
@@ -16,13 +16,14 @@ public class ProgrammingLanguage {
     @Lob
     private String educationWebsiteUrl;
 
-    public ProgrammingLanguage(String name, String description, String educationWebsiteUrl) {
+    public ProgrammingResource(String name, String description, String educationWebsiteUrl) {
         this.name = name;
         this.description = description;
         this.educationWebsiteUrl = educationWebsiteUrl;
     }
 
-    public ProgrammingLanguage() {}
+    public ProgrammingResource() {
+    }
 
     public Long getId() {
         return id;
