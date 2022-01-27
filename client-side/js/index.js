@@ -3,7 +3,8 @@
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProgrammingResources from "./components/ProgrammingResources.js";
-import Science from "./components/Science";
+import Science from "./components/Science.js";
+import apiHelpers from "./api-helpers/apiHelpers";
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -40,13 +41,18 @@ function navTechnology() {
       app.innerHTML = ProgrammingResources(programmingResources);
     })
   })
-  
-}
 
+}
+//Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-    console.log("click!");
-  });
-  
-}
+    const app = document.querySelector('#app');
+        app.innerHTML = Science();
+    // apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC"), science => {
+    // app.innerHTML = Science(science);
+    });
+
+  }
+
+  //Lyzz's API function

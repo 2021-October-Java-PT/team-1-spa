@@ -1,7 +1,6 @@
 export default function Science(science) {
     return `
-    <h1>Test</h1>
-    
-    
+    <h1>TEST!/h1>
     `;
 }
+    
