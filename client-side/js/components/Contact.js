@@ -2,7 +2,7 @@ export default function Contact() {
   return `
   
   <div class="container-fluid api-button text-center"> 
-  <h1 class="feedBack"> Give us your feed back, please! </h1>
+  <h1 class="feedBack"> Give us your feedback, please! </h1>
   <p class=para > We would love to know how we are doing or if there is something
     you would like to add to make your kids education that much more special!
   </p>
