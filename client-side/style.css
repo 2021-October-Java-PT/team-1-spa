@@ -89,6 +89,7 @@ p {
     font-size: 75px;
     margin-bottom: 9rem;
   }
+
   .box {
     font: 20px Mukta, libre;
     border-radius: 5px;
@@ -99,6 +100,15 @@ p {
     justify-content: center;
     
     
+
+  .vid-cont{
+    background-color: white;
+  }
+  
+  .api-button { 
+    background-color: #ffffff; 
+    color: #555555;
+
   }
 
   .boxContact {
