@@ -2,6 +2,8 @@
 
 import About from "./components/About";
 import Contact from "./components/Contact";
+import ProgrammingResources from "./components/ProgrammingResources.js";
+import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
 
@@ -10,6 +12,7 @@ buildPage();
 function buildPage() {
   about();
   navContact();
+  navTechnology();
 }
 
 function about() {
@@ -25,4 +28,14 @@ function navContact() {
   contactElem.addEventListener("click", () => {
     app.innerHTML = Contact();
   });
+}
+
+function navTechnology() {
+  const technologyElem = document.querySelector("#technologyTile");
+  technologyElem.addEventListener("click", () => {
+    crud.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
+      app.innerHTML = ProgrammingResources(programmingResources);
+    })
+  })
+  
 }
