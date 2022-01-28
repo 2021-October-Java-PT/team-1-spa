@@ -15,11 +15,13 @@ public class ProgrammingResource {
     private String description;
     @Lob
     private String educationWebsiteUrl;
+    private String logoImage;
 
-    public ProgrammingResource(String name, String description, String educationWebsiteUrl) {
+    public ProgrammingResource(String name, String description, String educationWebsiteUrl, String logoImage) {
         this.name = name;
         this.description = description;
         this.educationWebsiteUrl = educationWebsiteUrl;
+        this.logoImage = logoImage;
     }
 
     public ProgrammingResource() {
@@ -39,5 +41,9 @@ public class ProgrammingResource {
 
     public String getEducationWebsiteUrl() {
         return educationWebsiteUrl;
+    }
+
+    public String getLogoImage() {
+        return logoImage;
     }
 }
