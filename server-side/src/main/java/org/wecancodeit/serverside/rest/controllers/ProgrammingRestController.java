@@ -18,26 +18,27 @@ public class ProgrammingRestController {
     private ProgrammingResourceRepository programmingRepo;
 
     @GetMapping("/api/programming-resources")
-    public Collection<ProgrammingResource> getProgrammingLanguages() {
+    public Collection<ProgrammingResource> getProgrammingResources() {
         return (Collection<ProgrammingResource>) programmingRepo.findAll();
     }
 
     @GetMapping("/api/programming-resources/{id}")
-    public Optional<ProgrammingResource> getProgrammingLanguage(@PathVariable Long id) {
+    public Optional<ProgrammingResource> getProgrammingResource(@PathVariable Long id) {
         return programmingRepo.findById(id);
     }
 
     @PostMapping("/api/programming-resources/add-resource")
-    public Collection<ProgrammingResource> addItem(@RequestBody String body) throws JSONException {
-        JSONObject newLanguage = new JSONObject(body);
-        String name = newLanguage.getString("resource name");
-        String description = newLanguage.getString("resource description");
-        String educationWebsiteUrl = newLanguage.getString("website URL");
+    public Collection<ProgrammingResource> addProgrammingResource(@RequestBody String body) throws JSONException {
+        JSONObject newResource = new JSONObject(body);
+        String name = newResource.getString("resource name");
+        String description = newResource.getString("resource description");
+        String educationWebsiteUrl = newResource.getString("website URL");
+        String logoImage = newResource.getString("logo image");
 
         Optional<ProgrammingResource> resourceToAddOpt = programmingRepo.findByName(name);
 
         if (resourceToAddOpt.isEmpty()) {
-            ProgrammingResource resourceToAdd = new ProgrammingResource(name, description, educationWebsiteUrl);
+            ProgrammingResource resourceToAdd = new ProgrammingResource(name, description, educationWebsiteUrl, logoImage);
             programmingRepo.save(resourceToAdd);
         }
 

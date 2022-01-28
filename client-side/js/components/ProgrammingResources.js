@@ -4,7 +4,7 @@ export default function ProgrammingResources(programmingResources) {
         <ul>
             ${programmingResources.map(programmingResource => {
             return `
-                <li>${programmingResource.name}
+                <li class="programming-resource__list">${programmingResource.name}
                     <input type="hidden" id="programmingLanguageId" value="${programmingResource.id}">
                 </li>
             `;
