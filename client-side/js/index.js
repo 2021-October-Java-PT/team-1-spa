@@ -1,8 +1,10 @@
 // console.log('Client Side is wired up!');
 
 import About from "./components/About";
+import Art from "./components/Art.js";
 import Contact from "./components/Contact";
 import ProgrammingResources from "./components/ProgrammingResources.js";
+import apiHelpers from "./api-helpers/apiHelpers";
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -13,6 +15,7 @@ function buildPage() {
   about();
   navContact();
   navTechnology();
+  navArt();
 }
 
 function about() {
@@ -39,4 +42,15 @@ function navTechnology() {
     })
   })
   
+}
+
+function navArt(){
+  const lingCover = document.querySelector("#artTile");
+  lingCover.addEventListener('click', () => {
+    const app = document.querySelector('#app');
+    app.innerHTML = Art();
+    
+    // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
+    
+  })
 }

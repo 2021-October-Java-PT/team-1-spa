@@ -83,8 +83,7 @@ p {
 /* Dia's */
 
 @media screen and (min-width: 760px) {
-
-  .feedBack{
+  .feedBack {
     font-weight: 600;
     font-size: 75px;
     margin-bottom: 9rem;
@@ -98,17 +97,15 @@ p {
     border-radius: 3rem;
     display: flex;
     justify-content: center;
-    
-    
+  }
 
-  .vid-cont{
+  .vid-cont {
     background-color: white;
   }
-  
-  .api-button { 
-    background-color: #ffffff; 
-    color: #555555;
 
+  .api-button {
+    background-color: #ffffff;
+    color: #555555;
   }
 
   .boxContact {
@@ -123,18 +120,20 @@ p {
     grid-template-columns: 2fr 2fr;
     gap: 0.5rem;
     position: relative;
+
+    font-size: 20px;
   }
-  
-  .image-responsive{
+
+  .image-responsive {
     opacity: 1;
     display: block;
-    transition: .5s ease;
+    transition: 0.5s ease;
     backface-visibility: hidden;
     border-radius: 25px;
   }
-  
-  .hover-effect{
-    transition: .5s ease;
+
+  .hover-effect {
+    transition: 0.5s ease;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -143,18 +142,18 @@ p {
     -ms-transform: translate(-50%, -50%);
     text-align: center;
   }
-  
-  .col-sm-4:hover .image-responsive{
+
+  .col-sm-4:hover .image-responsive {
     opacity: 0.3;
     -webkit-filter: blur(10px);
     filter: blur(10px);
     z-index: -1;
   }
-  
-  .col-sm-4:hover .hover-effect{
+
+  .col-sm-4:hover .hover-effect {
     opacity: 1;
   }
-  
+
   .hover-text {
     background-color: white;
     color: #000000;
@@ -162,9 +161,18 @@ p {
     padding: 16px 32px;
   }
 
-  .ftr { 
-    background-color: #8b97fd; 
+  .ftr {
+    background-color: #8b97fd;
     color: #fff;
+  }
+  .box-contain {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .box2Contact {
@@ -184,7 +192,7 @@ p {
     grid-column: 1/6;
   }
 
-  .para{
+  .para {
     font-size: 3rem;
     margin-left: 20rem;
     margin-right: 20rem;
