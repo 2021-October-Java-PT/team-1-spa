@@ -15,7 +15,7 @@ export default function Home() {
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${scienceImg}" class="img-responsive margin img-rounded" alt="Image" style="display:inline"
+        <img src="${scienceImg}" class="img-responsive margin img-rounded" id="scienceTile" alt="Image" style="display:inline"
           alt="science" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">CHOOSE A TOPIC</div>

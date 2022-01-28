@@ -4,10 +4,8 @@ import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import Science from "./components/Science.js";
-import apiHelpers from "./api-helpers/apiHelpers";
-import crud from "./crud/crud.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-// import crud from "./crud/crud.js";
+import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
 
@@ -34,6 +32,7 @@ function navHome() {
     navContact();
     navHome();
     navTechnology();
+    navScience();
   });
 }
 
@@ -61,22 +60,24 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
-
 }
+
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-    const app = document.querySelector('#app');
-        app.innerHTML = Science();
-    // apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC"), science => {
-    // app.innerHTML = Science(science);
+    // const app = document.querySelector('#app');
+    app.innerHTML = Science();
+    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", science => {
+      app.innerHTML = Science(science);
     });
-
-  }
-
-  //Lyzz's API function
+    //Lyzz's API function
+  });
 }
+
+
+
+
 
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
