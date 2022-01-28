@@ -1,5 +1,7 @@
-package org.wecancodeit.serverside.model;
+package org.wecancodeit.serverside.models;
 
+
+import org.wecancodeit.serverside.models.ProgrammingResource;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -10,8 +12,8 @@ public class HashTag {
     @GeneratedValue
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "hashTags")
-    private Collection<ProgrammingLanguage> programmingLanguages;
+//    @ManyToMany(mappedBy = "hashTags")
+//    private Collection<ProgrammingResource> programmingLanguages;
 
 
     public HashTag() {
