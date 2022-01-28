@@ -1,10 +1,13 @@
 import About from "./components/About";
+import Art from "./components/Art.js";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
+
 import Science from "./components/Science.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
+
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -17,6 +20,7 @@ function buildPage() {
   navContact();
   navHome();
   navTechnology();
+  navArt();
   navScience();
 }
 
@@ -34,6 +38,7 @@ function navHome() {
     navTechnology();
     navScience();
   });
+
 }
 
 function navAbout() {
@@ -60,6 +65,19 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
+ 
+}
+
+function navArt(){
+  const lingCover = document.querySelector("#artTile");
+  lingCover.addEventListener('click', () => {
+    const app = document.querySelector('#app');
+    app.innerHTML = Art();
+    
+    // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
+    
+  })
+
 }
 
 //Lyzz's function
@@ -74,9 +92,6 @@ function navScience() {
     //Lyzz's API function
   });
 }
-
-
-
 
 
 function renderProgrammingResource() {
@@ -99,4 +114,5 @@ function returnToAllResources() {
       });
     }
   });
+
 }
