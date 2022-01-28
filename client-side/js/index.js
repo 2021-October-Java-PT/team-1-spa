@@ -59,6 +59,7 @@ function navTechnology() {
   })
 }
 
+//Madison's Functions
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("programming-resource__list")) {
@@ -71,6 +72,7 @@ function renderProgrammingResource() {
   });
 }
 
+//Madison's Functionst
 function returnToAllResources() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnResources")) {
