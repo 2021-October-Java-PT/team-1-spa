@@ -61,8 +61,11 @@ export default function About() {
         <section id="diascruggs">
           <h2>Dia Scruggs</h2>
           <img class="headshot" src="${Dia}" alt="Headshot" />
-          <p class>
-            
+          <p class>A newbie coder trying to find her way into the front-end web design and
+          development field who wants to master CSS and HTML as well as JavaScript
+          to develop beautiful web sites. Has a love for reading and writing stores
+          from fantasy to romance and action as well as a want-to-be landscape
+          photographer.
           </p>
           <a id="github" href="https://github.com/DiaS793">
             <img  id="github" src="${gitHubImg}" alt="github" />
