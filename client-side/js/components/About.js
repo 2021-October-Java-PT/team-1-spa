@@ -52,7 +52,7 @@ export default function About() {
           <h2>Dia Scruggs</h2>
           <img class="headshot" src="" alt="Headshot" />
           <p class>
-            
+    
           </p>
           <a id="github" href="">
             <img  id="github" src="${gitHubImg}" alt="github" />

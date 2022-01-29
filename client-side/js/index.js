@@ -1,5 +1,6 @@
 import About from "./components/About";
-import Art1 from "./components/Art1.js";
+import Art from "./components/Art1.js";
+import ArtMein from "./components/ArtMein.js";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
@@ -18,7 +19,7 @@ function buildPage() {
   navContact();
   navHome();
   navTechnology();
-  navArt1();
+  navArtSection();
   navScience();
 }
 
@@ -66,10 +67,37 @@ function navTechnology() {
  
 }
 
-function navArt1(){
-  const lingCover = document.querySelector("#artTile");
-  lingCover.addEventListener('click', () => {
-   
+// function ArtSection(){
+//   const art = document.querySelector("#artTile");
+//   art.addEventListener('click', () => {
+//    app.innerHTML = artMein();
+
+//     // apiHelpers.getRequest("http://localhost:24614/", (artPieces)=> {
+//     //   // console.log('ART PIECES', artPieces);
+//     //   app.innerHTML = ArtMein(artPieces);
+
+//     });
+//   });
+
+  
+// }
+
+
+function navArtSection(){
+  const art = document.querySelector("#artTile");
+  art.addEventListener('click', () => {
+    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
+      console.log('ART PIECE1', artPiece1);
+      const art1Btn = document.querySelector(".art1")
+      art1Btn.innerHTML = Art1(artPiece1);
+
+    });
+    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
+      console.log('ART PIECE1', artPiece1);
+      const art1Btn = document.querySelector(".art1")
+      art1Btn.innerHTML = Art1(artPiece1);
+
+    });
     apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
       console.log('ART PIECE1', artPiece1);
       app.innerHTML = Art1(artPiece1);
