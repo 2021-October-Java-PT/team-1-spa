@@ -198,3 +198,36 @@ p {
     margin-right: 20rem;
   }
 }
+
+/* Dia's art sections */
+@media screen and (min-width: 760px) {
+  .background {
+    background-image: url("images\indiaBackground (with blur) 2 (1).jpg");
+    color: #000000;
+    object-fit: fill;
+    font-weight: 600;
+  }
+  #linga {
+    text-align: justify;
+    margin-left: 28rem;
+    margin-right: 28rem;
+    font-size: 2rem;
+  }
+
+  #lingaImg {
+    max-width: 130rem;
+    border-radius: 20rem;
+  }
+  #lingaImg2 {
+    max-width: 59rem;
+    border-radius: 20rem;
+  }
+}
+.linga-flex {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 14rem;
+  margin-right: 14rem;
+}

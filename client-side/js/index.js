@@ -1,13 +1,11 @@
 import About from "./components/About";
-import Art from "./components/Art.js";
+import Art1 from "./components/Art1.js";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
-
 import Science from "./components/Science.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -20,7 +18,7 @@ function buildPage() {
   navContact();
   navHome();
   navTechnology();
-  navArt();
+  navArt1();
   navScience();
 }
 
@@ -68,16 +66,16 @@ function navTechnology() {
  
 }
 
-function navArt(){
+function navArt1(){
   const lingCover = document.querySelector("#artTile");
   lingCover.addEventListener('click', () => {
-    const app = document.querySelector('#app');
-    app.innerHTML = Art();
-    
-    // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
-    
-  })
+   
+    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
+      console.log('ART PIECE1', artPiece1);
+      app.innerHTML = Art1(artPiece1);
 
+    });
+  });
 }
 
 //Lyzz's function
