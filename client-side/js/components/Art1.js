@@ -1,23 +1,23 @@
-export default function Art1(artPiece1) {
+export default function Art1(metObject) {
   return `
         
         <div class="background">
-        <h2 id="lingaTitle">${artPiece1.department}<h2>
+        <h2 id="lingaTitle">${metObject.department}<h2>
         <section class="linga-flex">
-        <img src="${artPiece1.primaryImageSmall}" id="lingaImg" >
+        <img src="${metObject.primaryImageSmall}" id="lingaImg" >
         <section>
-        <h2>${artPiece1.objectDate} Hindu Art Piece</h2>
-        <h2>${artPiece1.repository}</h2>
+        <h2>${metObject.objectDate} Hindu Art Piece</h2>
+        <h2>${metObject.repository}</h2>
         </section>
-        <img src="${artPiece1.additionalImages}" id="lingaImg2" >
+        <img src="${metObject.additionalImages}" id="lingaImg2" >
         <section>
         </section>
         
         </section>
 
-        <h2 id="lingaPiece">${artPiece1.title}</h2>
+        <h2 id="lingaPiece">${metObject.title}</h2>
         <p id="linga" > 
-        <br> This is a piece held in the New York Metropolitan Museum called a ${artPiece1.title}. It was founded in the 15th century which was a 
+        <br> This is a piece held in the New York Metropolitan Museum called a ${metObject.title}. It was founded in the 15th century which was a 
         really long time ago in Nepal, a country in South Asia. This is representative of the pillar of fire that the most powerful god in the
         Hindu religion, Shiva, came from. According to the <a href="https://www.britannica.com/topic/lingam"> Britannica</a> the Linga is votary 
         or dedication to Shiva.This Linga covering has the four faces of Shiva carved onto it.  <br>

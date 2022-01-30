@@ -1,6 +1,5 @@
 import About from "./components/About";
-import Art from "./components/Art1.js";
-import ArtMein from "./components/ArtMein.js";
+import Art1 from "./components/Art1.js";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
@@ -37,7 +36,6 @@ function navHome() {
     navTechnology();
     navScience();
   });
-
 }
 
 function navAbout() {
@@ -59,50 +57,25 @@ function navContact() {
 function navTechnology() {
   const technologyElem = document.querySelector("#technologyTile");
   technologyElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-      app.innerHTML = ProgrammingResources(programmingResources);
-    })
+    apiHelpers.getRequest(
+      "http://localhost:8080/api/programming-resources",
+      (programmingResources) => {
+        app.innerHTML = ProgrammingResources(programmingResources);
+      }
+    );
     renderProgrammingResource();
-  })
- 
+  });
 }
 
-// function ArtSection(){
-//   const art = document.querySelector("#artTile");
-//   art.addEventListener('click', () => {
-//    app.innerHTML = artMein();
-
-//     // apiHelpers.getRequest("http://localhost:24614/", (artPieces)=> {
-//     //   // console.log('ART PIECES', artPieces);
-//     //   app.innerHTML = ArtMein(artPieces);
-
-//     });
-//   });
-
-  
-// }
-
-
-function navArtSection(){
-  const art = document.querySelector("#artTile");
-  art.addEventListener('click', () => {
-    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
-      console.log('ART PIECE1', artPiece1);
-      const art1Btn = document.querySelector(".art1")
-      art1Btn.innerHTML = Art1(artPiece1);
-
-    });
-    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
-      console.log('ART PIECE1', artPiece1);
-      const art1Btn = document.querySelector(".art1")
-      art1Btn.innerHTML = Art1(artPiece1);
-
-    });
-    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359", (artPiece1)=> {
-      console.log('ART PIECE1', artPiece1);
-      app.innerHTML = Art1(artPiece1);
-
-    });
+function navArtSection() {
+  const lingamCover = document.querySelector("#artTile");
+  lingamCover.addEventListener("click", () => {
+    apiHelpers.getRequest(
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/39359",
+      (metObject) => {
+        app.innerHTML = Art1(metObject);
+      }
+    );
   });
 }
 
@@ -112,21 +85,28 @@ function navScience() {
   scienceElem.addEventListener("click", () => {
     // const app = document.querySelector('#app');
     app.innerHTML = Science();
-    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", science => {
-      app.innerHTML = Science(science);
-    });
+    apiHelpers.getRequest(
+      "https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC",
+      (science) => {
+        app.innerHTML = Science(science);
+      }
+    );
     //Lyzz's API function
   });
 }
 
-
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("programming-resource__list")) {
-      const programmingResourceId = event.target.querySelector("#programmingLanguageId").value;
-      apiHelpers.getRequest(`http://localhost:8080/api/programming-resources/${programmingResourceId}`, programmingResource => {
-        app.innerHTML = ProgrammingResource(programmingResource);
-      });
+      const programmingResourceId = event.target.querySelector(
+        "#programmingLanguageId"
+      ).value;
+      apiHelpers.getRequest(
+        `http://localhost:8080/api/programming-resources/${programmingResourceId}`,
+        (programmingResource) => {
+          app.innerHTML = ProgrammingResource(programmingResource);
+        }
+      );
       returnToAllResources();
     }
   });
@@ -135,10 +115,12 @@ function renderProgrammingResource() {
 function returnToAllResources() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnResources")) {
-      apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-        app.innerHTML = ProgrammingResources(programmingResources);
-      });
+      apiHelpers.getRequest(
+        "http://localhost:8080/api/programming-resources",
+        (programmingResources) => {
+          app.innerHTML = ProgrammingResources(programmingResources);
+        }
+      );
     }
   });
-
 }
