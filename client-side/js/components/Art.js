@@ -1,4 +1,4 @@
-export default function Art1(metObject) {
+export default function Art(metObject) {
     return `
           
           <div class="background">

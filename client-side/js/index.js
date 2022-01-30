@@ -36,7 +36,6 @@ function navHome() {
     navTechnology();
     navScience();
   });
-
 }
 
 function navAbout() {
@@ -58,22 +57,26 @@ function navContact() {
 function navTechnology() {
   const technologyElem = document.querySelector("#technologyTile");
   technologyElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-      app.innerHTML = ProgrammingResources(programmingResources);
-    })
+    apiHelpers.getRequest(
+      "http://localhost:8080/api/programming-resources",
+      (programmingResources) => {
+        app.innerHTML = ProgrammingResources(programmingResources);
+      }
+    );
     renderProgrammingResource();
-  })
- 
+  });
 }
 
-function navArt(){
+function navArt() {
   const lingCover = document.querySelector("#artTile");
-  lingCover.addEventListener('click', () => {
-    apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/39359"), metObject =>{
-      app.innerHTML = Art(metObject);
-    }
-  })
-
+  lingCover.addEventListener("click", () => {
+    apiHelpers.getRequest(
+      "https://collectionapi.metmuseum.org/public/collection/v1/objects/39359",
+      (metObject) => {
+        app.innerHTML = Art(metObject);
+      }
+    );
+  });
 }
 
 //Lyzz's function
@@ -82,21 +85,28 @@ function navScience() {
   scienceElem.addEventListener("click", () => {
     // const app = document.querySelector('#app');
     app.innerHTML = Science();
-    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", science => {
-      app.innerHTML = Science(science);
-    });
+    apiHelpers.getRequest(
+      "https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC",
+      (science) => {
+        app.innerHTML = Science(science);
+      }
+    );
     //Lyzz's API function
   });
 }
 
-
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("programming-resource__list")) {
-      const programmingResourceId = event.target.querySelector("#programmingLanguageId").value;
-      apiHelpers.getRequest(`http://localhost:8080/api/programming-resources/${programmingResourceId}`, programmingResource => {
-        app.innerHTML = ProgrammingResource(programmingResource);
-      });
+      const programmingResourceId = event.target.querySelector(
+        "#programmingLanguageId"
+      ).value;
+      apiHelpers.getRequest(
+        `http://localhost:8080/api/programming-resources/${programmingResourceId}`,
+        (programmingResource) => {
+          app.innerHTML = ProgrammingResource(programmingResource);
+        }
+      );
       returnToAllResources();
     }
   });
@@ -105,10 +115,12 @@ function renderProgrammingResource() {
 function returnToAllResources() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnResources")) {
-      apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-        app.innerHTML = ProgrammingResources(programmingResources);
-      });
+      apiHelpers.getRequest(
+        "http://localhost:8080/api/programming-resources",
+        (programmingResources) => {
+          app.innerHTML = ProgrammingResources(programmingResources);
+        }
+      );
     }
   });
-
 }
