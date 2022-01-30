@@ -129,14 +129,18 @@ function navBrainBreaks() {
 
   function renderBrainBreak() {
     app.addEventListener("click", (event) => {
-      if (event.target.classList.contains("brain-breaks__list")) {
-        const breakId = event.target.querySelector("#breakId").value;
+      const breakId = event.target.querySelector("#breakId").value;
+      if (event.target.classList.contains("brain-breaks__activity")) {
         apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
           app.innerHTML = BrainBreak(brainBreak);
         });
-        returnToBreaks();
+      } else if (event.target.classList.contains("brain-breaks__participants")) {
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
       }
     });
+    returnToBreaks();
   }
 
   function returnToBreaks() {
