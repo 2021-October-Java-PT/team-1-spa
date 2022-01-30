@@ -1,4 +1,5 @@
 import About from "./components/About";
+
 import Art from "./components/Art.js";
 import BrainBreak from "./components/BrainBreak";
 import BrainBreaks from "./components/BrainBreaks";
@@ -6,8 +7,12 @@ import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
+import SpaceResources from "./components/SpaceResources.js";
+import apiHelpers from "./api-helpers/apiHelpers.js";
+import crud from "./crud/crud.js";
 import Science from "./components/Science.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
+
 
 const app = document.querySelector("#app");
 
@@ -19,7 +24,6 @@ function buildPage() {
   navContact();
   navHome();
   navTechnology();
-  navArt();
   navScience();
   navBrainBreaks();
 }
@@ -39,7 +43,6 @@ function navHome() {
     navScience();
     navBrainBreaks();
   });
-
 }
 
 function navAbout() {
@@ -66,6 +69,7 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
+
 }
 
 function navArt(){
@@ -84,10 +88,10 @@ function navArt(){
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-    // const app = document.querySelector('#app');
-    app.innerHTML = Science();
-    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", science => {
-      app.innerHTML = Science(science);
+    console.log('FIRE');
+    apiHelpers.getRequest("https://images-api.nasa.gov/search?q=stephanie%20wilson", (wilsonObject) => {
+      console.log('WILSON OBJECT', wilsonObject);
+      app.innerHTML = SpaceResources(wilsonObject);
     });
     //Lyzz's API function
   });
@@ -114,7 +118,9 @@ function returnToAllResources() {
       });
     }
   });
+
 }
+
 
 function navBrainBreaks() {
   const brainBreakElem = document.querySelector("#brainBreakTile");
@@ -150,4 +156,5 @@ function navBrainBreaks() {
       }
     });
   }
+
 
