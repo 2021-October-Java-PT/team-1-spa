@@ -61,11 +61,10 @@ export default function About() {
         <section id="diascruggs">
           <h2>Dia Scruggs</h2>
           <img class="headshot" src="${Dia}" alt="Headshot" />
-          <p class>A newbie coder trying to find her way into the front-end web design and
-          development field who wants to master CSS and HTML as well as JavaScript
-          to develop beautiful web sites. Has a love for reading and writing stores
-          from fantasy to romance and action as well as a want-to-be landscape
-          photographer.
+          <p class>I have always loved creativity and art. I write in my free time stories of romance, fantasy and action. I also love taking photos of pretty things like the sky and flowers. 
+          I never knew how to further my need to add to the art world without having a graphic design degree or the ability to sketch and paint. That is until I found web design. Now I want to develop and master the skills 
+          to make and design pretty and beautiful websites. I am still new and have so much to learn, but I am determined to do my best and master as much as I can to 
+          one day be able to build websites that people will wow at.
           </p>
           <a id="github" href="https://github.com/DiaS793">
             <img  id="github" src="${gitHubImg}" alt="github" />
