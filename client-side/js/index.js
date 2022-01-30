@@ -22,6 +22,7 @@ function buildPage() {
   navTechnology();
   navScience();
   navBrainBreaks();
+  navArt();
 }
 
 function renderHome() {
@@ -38,6 +39,7 @@ function navHome() {
     navTechnology();
     navScience();
     navBrainBreaks();
+    navArt();
   });
 }
 
