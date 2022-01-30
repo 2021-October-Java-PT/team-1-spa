@@ -1,4 +1,8 @@
 import About from "./components/About";
+
+import Art from "./components/Art.js";
+import BrainBreak from "./components/BrainBreak";
+import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
@@ -6,6 +10,9 @@ import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResources from "./components/SpaceResources.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
 import crud from "./crud/crud.js";
+import Science from "./components/Science.js";
+import apiHelpers from "./api-helpers/apiHelpers.js";
+
 
 const app = document.querySelector("#app");
 
@@ -18,6 +25,7 @@ function buildPage() {
   navHome();
   navTechnology();
   navScience();
+  navBrainBreaks();
 }
 
 function renderHome() {
@@ -33,6 +41,7 @@ function navHome() {
     navHome();
     navTechnology();
     navScience();
+    navBrainBreaks();
   });
 }
 
@@ -60,6 +69,19 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
+
+}
+
+function navArt(){
+  const lingCover = document.querySelector("#artTile");
+  lingCover.addEventListener('click', () => {
+    const app = document.querySelector('#app');
+    app.innerHTML = Art();
+    
+    // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
+    
+  })
+
 }
 
 //Lyzz's function
@@ -96,4 +118,43 @@ function returnToAllResources() {
       });
     }
   });
+
 }
+
+
+function navBrainBreaks() {
+  const brainBreakElem = document.querySelector("#brainBreakTile");
+  brainBreakElem.addEventListener("click", () => {
+    // const input = prompt("Please enter an activity type of " +
+    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
+    // alert(input);
+    app.innerHTML = BrainBreaks();
+    renderBrainBreak();
+    });
+  }
+
+  function renderBrainBreak() {
+    app.addEventListener("click", (event) => {
+      const breakId = event.target.querySelector("#breakId").value;
+      if (event.target.classList.contains("brain-breaks__activity")) {
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
+      } else if (event.target.classList.contains("brain-breaks__participants")) {
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
+      }
+    });
+    returnToBreaks();
+  }
+
+  function returnToBreaks() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("returnBreaks")) {
+      app.innerHTML = BrainBreaks();
+      }
+    });
+  }
+
+

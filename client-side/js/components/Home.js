@@ -1,4 +1,7 @@
 import artImg from "../../images/art.png";
+import brainBreakImg from "../../images/brainBreak.png";
+import fishClickerImg from "../../images/fishClicker.png";
+import resourcesImg from "../../images/resources.png";
 import scienceImg from "../../images/science.png";
 import techImg from "../../images/tech.png";
 
@@ -28,6 +31,30 @@ export default function Home() {
           <div class="hover-text">CHOOSE A TOPIC</div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="${brainBreakImg}" class="img-responsive margin img-rounded" id="brainBreakTile" alt="Image"
+          style="display:inline" alt="tech" width="250" height="250">
+        <div class="hover-effect">
+          <div class="hover-text">CHOOSE A TOPIC</div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <img src="${fishClickerImg}" class="img-responsive margin img-rounded" id="fishClickerTile" alt="Image"
+          style="display:inline" alt="tech" width="250" height="250">
+        <div class="hover-effect">
+          <div class="hover-text">PLAY GAME</div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <img src="${resourcesImg}" class="img-responsive margin img-rounded" id="resourcesTile" alt="Image"
+          style="display:inline" alt="tech" width="250" height="250">
+        <div class="hover-effect">
+          <div class="hover-text">LEARN MORE</div>
+        </div>
+      </div>
+    </div>  
     </div>
   </div>
     `;
