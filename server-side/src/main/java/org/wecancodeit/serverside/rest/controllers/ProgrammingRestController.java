@@ -30,15 +30,15 @@ public class ProgrammingRestController {
     @PostMapping("/api/programming-resources/add-resource")
     public Collection<ProgrammingResource> addProgrammingResource(@RequestBody String body) throws JSONException {
         JSONObject newResource = new JSONObject(body);
-        String name = newResource.getString("resource name");
-        String description = newResource.getString("resource description");
-        String educationWebsiteUrl = newResource.getString("website URL");
-        String logoImage = newResource.getString("logo image");
+        String name = newResource.getString("name");
+        String description = newResource.getString("description");
+        String url = newResource.getString("url");
+        String logoLink = newResource.getString("logo");
 
         Optional<ProgrammingResource> resourceToAddOpt = programmingRepo.findByName(name);
 
         if (resourceToAddOpt.isEmpty()) {
-            ProgrammingResource resourceToAdd = new ProgrammingResource(name, description, educationWebsiteUrl, logoImage);
+            ProgrammingResource resourceToAdd = new ProgrammingResource(name, description, url, logoLink);
             programmingRepo.save(resourceToAdd);
         }
 
