@@ -67,7 +67,7 @@ function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
     console.log('FIRE');
-    apiHelpers.getRequest("https://images-api.nasa.gov/asset/as11-40-5874", (apolloObject) => {
+    apiHelpers.getRequest("https://images-api.nasa.gov/search?q=stephanie%20wilson", (apolloObject) => {
       console.log('APOLLO OBJECT', apolloObject);
       app.innerHTML = SpaceResources(apolloObject);
     });
