@@ -57,25 +57,14 @@ function navContact() {
   });
 }
 
-//Madison's Functions
-function navTechnology() {
-  const technologyElem = document.querySelector("#technologyTile");
-  technologyElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-      app.innerHTML = ProgrammingResources(programmingResources);
-    })
-    renderProgrammingResource();
-  })
-}
-
-function navArt(){
+function navArt() {
   const lingCover = document.querySelector("#artTile");
   lingCover.addEventListener('click', () => {
     const app = document.querySelector('#app');
     app.innerHTML = Art();
-    
+
     // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
-    
+
   })
 
 }
@@ -93,7 +82,55 @@ function navScience() {
   });
 }
 
+function navBrainBreaks() {
+  const brainBreakElem = document.querySelector("#brainBreakTile");
+  brainBreakElem.addEventListener("click", () => {
+    // const input = prompt("Please enter an activity type of " +
+    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
+    // alert(input);
+    app.innerHTML = BrainBreaks();
+    renderBrainBreak();
+  });
+}
 
+function renderBrainBreak() {
+  app.addEventListener("click", (event) => {
+    const breakId = event.target.querySelector("#breakId").value;
+    if (event.target.classList.contains("brain-breaks__activity")) {
+      apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
+        app.innerHTML = BrainBreak(brainBreak);
+      });
+    } else if (event.target.classList.contains("brain-breaks__participants")) {
+      apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
+        app.innerHTML = BrainBreak(brainBreak);
+      });
+    }
+  });
+  returnToBreaks();
+}
+
+function returnToBreaks() {
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("returnBreaks")) {
+      app.innerHTML = BrainBreaks();
+    }
+  });
+}
+
+//Madison's Functions
+//Function to navigate to all ProgrammingResources page by clicking on tile
+function navTechnology() {
+  const technologyElem = document.querySelector("#technologyTile");
+  technologyElem.addEventListener("click", () => {
+    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
+      app.innerHTML = ProgrammingResources(programmingResources);
+    })
+    renderProgrammingResource();
+    addProgramingResourceToAPI()
+  })
+}
+
+//Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("programming-resource__list")) {
@@ -102,10 +139,12 @@ function renderProgrammingResource() {
         app.innerHTML = ProgrammingResource(programmingResource);
       });
       returnToAllResources();
+      addProgramingResourceToAPI();
     }
   });
 }
 
+//Function to return to all ProgrammingResources page by clicking on button in individual ProgrammingResource page
 function returnToAllResources() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnResources")) {
@@ -116,38 +155,22 @@ function returnToAllResources() {
   });
 }
 
-function navBrainBreaks() {
-  const brainBreakElem = document.querySelector("#brainBreakTile");
-  brainBreakElem.addEventListener("click", () => {
-    // const input = prompt("Please enter an activity type of " +
-    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
-    // alert(input);
-    app.innerHTML = BrainBreaks();
-    renderBrainBreak();
-    });
-  }
+function addProgramingResourceToAPI() {
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("add-programming-resource__submit")) {
+      const addResourceName = event.target.parentElement.querySelector(".add-programming-resource__name").value;
+      const addResourceDescription = event.target.parentElement.querySelector(".add-programming-resource__description").value;
+      const addResourceUrl = event.target.parentElement.querySelector(".add-programming-resource__website__url").value;
+      const addResourceLogo = event.target.parentElement.querySelector(".add-programming-resource__website__logoLink").value;
 
-  function renderBrainBreak() {
-    app.addEventListener("click", (event) => {
-      const breakId = event.target.querySelector("#breakId").value;
-      if (event.target.classList.contains("brain-breaks__activity")) {
-        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
-          app.innerHTML = BrainBreak(brainBreak);
-        });
-      } else if (event.target.classList.contains("brain-breaks__participants")) {
-        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
-          app.innerHTML = BrainBreak(brainBreak);
-        });
-      }
-    });
-    returnToBreaks();
-  }
-
-  function returnToBreaks() {
-    app.addEventListener("click", (event) => {
-      if (event.target.classList.contains("returnBreaks")) {
-      app.innerHTML = BrainBreaks();
+      apiHelpers.postRequest("http://localhost:8080/api/programming-resources/add-resource", 
+        {
+          name: addResourceName,
+          description: addResourceDescription,
+          url: addResourceUrl,
+          logo: addResourceLogo
+        },
+        (programmingResources) => (app.innerHTML = ProgrammingResources(programmingResources)));
       }
     });
   }
-

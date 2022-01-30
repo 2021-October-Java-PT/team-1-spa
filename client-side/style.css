@@ -80,6 +80,14 @@ p {
   height: 200px;
 }
 
+.add-programming-resource__name,
+.add-programming-resource__description,
+.add-programming-resource__website__url {
+  display: block;
+  margin: 8px auto;
+  width: 400px;
+}
+
 /* Dia's */
 
 @media screen and (min-width: 760px) {
@@ -169,6 +177,7 @@ p {
     background-color: #8b97fd;
     color: #fff;
   }
+
   .box-contain {
     width: fit-content;
     display: flex;
