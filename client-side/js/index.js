@@ -1,13 +1,13 @@
 import About from "./components/About";
 import Art from "./components/Art.js";
 import BrainBreak from "./components/BrainBreak";
+import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import Science from "./components/Science.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
 
@@ -21,7 +21,7 @@ function buildPage() {
   navTechnology();
   navArt();
   navScience();
-  navBrainBreak();
+  navBrainBreaks();
 }
 
 function renderHome() {
@@ -37,7 +37,7 @@ function navHome() {
     navHome();
     navTechnology();
     navScience();
-    navBrainBreak();
+    navBrainBreaks();
   });
 
 }
@@ -66,7 +66,6 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
- 
 }
 
 function navArt(){
@@ -115,15 +114,36 @@ function returnToAllResources() {
       });
     }
   });
-
 }
 
-function navBrainBreak() {
+function navBrainBreaks() {
   const brainBreakElem = document.querySelector("#brainBreakTile");
   brainBreakElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://www.boredapi.com/api/activity?type=education", brainBreak => {
-      console.log(brainBreak);
-      app.innerHTML = BrainBreak(brainBreak);
+    // const input = prompt("Please enter an activity type of " +
+    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
+    // alert(input);
+    app.innerHTML = BrainBreaks();
+    renderBrainBreak();
     });
-  });
-}
+  }
+
+  function renderBrainBreak() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("brain-breaks__list")) {
+        const breakId = event.target.querySelector("#breakId").value;
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
+        returnToBreaks();
+      }
+    });
+  }
+
+  function returnToBreaks() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("returnBreaks")) {
+      app.innerHTML = BrainBreaks();
+      }
+    });
+  }
+
