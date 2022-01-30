@@ -1,13 +1,12 @@
 import About from "./components/About";
 import Art from "./components/Art.js";
+import BrainBreak from "./components/BrainBreak";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
-
 import Science from "./components/Science.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -22,6 +21,7 @@ function buildPage() {
   navTechnology();
   navArt();
   navScience();
+  navBrainBreak();
 }
 
 function renderHome() {
@@ -37,6 +37,7 @@ function navHome() {
     navHome();
     navTechnology();
     navScience();
+    navBrainBreak();
   });
 
 }
@@ -115,4 +116,14 @@ function returnToAllResources() {
     }
   });
 
+}
+
+function navBrainBreak() {
+  const brainBreakElem = document.querySelector("#brainBreakTile");
+  brainBreakElem.addEventListener("click", () => {
+    apiHelpers.getRequest("http://www.boredapi.com/api/activity?type=education", brainBreak => {
+      console.log(brainBreak);
+      app.innerHTML = BrainBreak(brainBreak);
+    });
+  });
 }
