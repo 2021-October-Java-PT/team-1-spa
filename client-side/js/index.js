@@ -67,9 +67,9 @@ function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
     console.log('FIRE');
-    apiHelpers.getRequest("https://images-api.nasa.gov/search?q=stephanie%20wilson", (apolloObject) => {
-      console.log('APOLLO OBJECT', apolloObject);
-      app.innerHTML = SpaceResources(apolloObject);
+    apiHelpers.getRequest("https://images-api.nasa.gov/search?q=stephanie%20wilson", (wilsonObject) => {
+      console.log('WILSON OBJECT', wilsonObject);
+      app.innerHTML = SpaceResources(wilsonObject);
     });
     //Lyzz's API function
   });
