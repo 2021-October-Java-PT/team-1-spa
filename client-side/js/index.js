@@ -70,6 +70,7 @@ function navArt() {
   });
 }
 
+
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
