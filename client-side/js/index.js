@@ -1,13 +1,10 @@
 import About from "./components/About";
-import Art from "./components/Art.js";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
-
-import Science from "./components/Science.js";
+import SpaceResources from "./components/SpaceResources.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-
 import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
@@ -20,7 +17,6 @@ function buildPage() {
   navContact();
   navHome();
   navTechnology();
-  navArt();
   navScience();
 }
 
@@ -38,7 +34,6 @@ function navHome() {
     navTechnology();
     navScience();
   });
-
 }
 
 function navAbout() {
@@ -65,29 +60,16 @@ function navTechnology() {
     })
     renderProgrammingResource();
   })
- 
-}
-
-function navArt(){
-  const lingCover = document.querySelector("#artTile");
-  lingCover.addEventListener('click', () => {
-    const app = document.querySelector('#app');
-    app.innerHTML = Art();
-    
-    // apiHelpers.getRequest("https://collectionapi.metmuseum.org/public/collection/v1/objects/65397")
-    
-  })
-
 }
 
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-    // const app = document.querySelector('#app');
-    app.innerHTML = Science();
-    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", science => {
-      app.innerHTML = Science(science);
+    console.log('FIRE');
+    apiHelpers.getRequest("https://images-api.nasa.gov/asset/as11-40-5874", (apolloObject) => {
+      console.log('APOLLO OBJECT', apolloObject);
+      app.innerHTML = SpaceResources(apolloObject);
     });
     //Lyzz's API function
   });
@@ -114,5 +96,4 @@ function returnToAllResources() {
       });
     }
   });
-
 }
