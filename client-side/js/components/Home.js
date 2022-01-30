@@ -9,7 +9,7 @@ export default function Home() {
   return `
     <div class="container-fluid api-button text-center" id="app">
     <h3 class="margin" id="title">DISCOVER KNOWLEDGE AND ADVENTURE</h3><br>
-    <div class="row" align="center">
+    <div class="row">
       <div class="col-sm-4">
         <img src="${artImg}" class="img-responsive margin img-rounded" id="artTile" alt="Image" style="display:inline" alt="art"
           width="250" height="150">
@@ -32,6 +32,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <div class="row">
       <div class="col-sm-4">
         <img src="${brainBreakImg}" class="img-responsive margin img-rounded" id="brainBreakTile" alt="Image"
           style="display:inline" alt="tech" width="250" height="250">
@@ -53,6 +54,7 @@ export default function Home() {
           <div class="hover-text">LEARN MORE</div>
         </div>
       </div>
+    </div>  
     </div>
   </div>
     `;
