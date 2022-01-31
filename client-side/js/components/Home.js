@@ -11,21 +11,21 @@ export default function Home() {
     <h3 class="margin" id="title">DISCOVER KNOWLEDGE AND ADVENTURE</h3><br>
     <div class="row">
       <div class="col-sm-4">
-        <img src="${artImg}" class="img-responsive margin img-rounded" id="artTile" alt="Image" style="display:inline" alt="art"
+        <img src="${artImg}" class="img-responsive margin img-rounded btn btn-primary" id="artTile" alt="Image" style="display:inline" alt="art"
           width="250" height="150">
         <div class="hover-effect">
           <div class="hover-text">CHOOSE A TOPIC</div>
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${scienceImg}" class="img-responsive margin img-rounded" id="scienceTile" alt="Image" style="display:inline"
+        <img src="${scienceImg}" class="img-responsive margin img-rounded btn btn-primary" id="scienceTile" alt="Image" style="display:inline"
           alt="science" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">CHOOSE A TOPIC</div>
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${techImg}" class="img-responsive margin img-rounded" id="technologyTile" alt="Image"
+        <img src="${techImg}" class="img-responsive margin img-rounded btn btn-primary" id="technologyTile" alt="Image"
           style="display:inline" alt="tech" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">CHOOSE A TOPIC</div>
@@ -34,21 +34,21 @@ export default function Home() {
     </div>
     <div class="row">
       <div class="col-sm-4">
-        <img src="${brainBreakImg}" class="img-responsive margin img-rounded" id="brainBreakTile" alt="Image"
+        <img src="${brainBreakImg}" class="img-responsive margin img-rounded btn btn-primary" id="brainBreakTile" alt="Image"
           style="display:inline" alt="tech" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">CHOOSE A TOPIC</div>
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${fishClickerImg}" class="img-responsive margin img-rounded" id="fishClickerTile" alt="Image"
+        <img src="${fishClickerImg}" class="img-responsive margin img-rounded btn btn-primary" id="fishClickerTile" alt="Image"
           style="display:inline" alt="tech" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">PLAY GAME</div>
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${resourcesImg}" class="img-responsive margin img-rounded" id="resourcesTile" alt="Image"
+        <img src="${resourcesImg}" class="img-responsive margin img-rounded btn btn-primary" id="resourcesTile" alt="Image"
           style="display:inline" alt="tech" width="250" height="250">
         <div class="hover-effect">
           <div class="hover-text">LEARN MORE</div>
