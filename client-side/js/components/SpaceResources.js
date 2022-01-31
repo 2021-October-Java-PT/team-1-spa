@@ -1,11 +1,11 @@
-export default function SpaceResources(wilsonObject) {
-    
+export default function SpaceResources(spaceResources) {
     return `
 
-    <img src= ${wilsonObject.collection.items[1].links[0].href}></img>
-    <h1>${wilsonObject.collection.items[0].data[0].title}</h1>
-    <h2>${wilsonObject.collection.items[0].data[0].description}</h2>   
-    
+    <h1>Let's learn about women who took space exploration to new frontiers!</h1>
+    <ul>
+    <li class="space__info">Stephanie Wilson
+        <input type="hidden" id="wilsonId" value=""${spaceResources.id}""></li>
+    </ul>
         
     `;
 }
