@@ -14,14 +14,14 @@ public class ProgrammingResource {
     @Lob
     private String description;
     @Lob
-    private String educationWebsiteUrl;
-    private String logoImage;
+    private String url;
+    private String logoUrl;
 
-    public ProgrammingResource(String name, String description, String educationWebsiteUrl, String logoImage) {
+    public ProgrammingResource(String name, String description, String url, String logoUrl) {
         this.name = name;
         this.description = description;
-        this.educationWebsiteUrl = educationWebsiteUrl;
-        this.logoImage = logoImage;
+        this.url = url;
+        this.logoUrl = logoUrl;
     }
 
     public ProgrammingResource() {
@@ -39,11 +39,11 @@ public class ProgrammingResource {
         return description;
     }
 
-    public String getEducationWebsiteUrl() {
-        return educationWebsiteUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public String getLogoImage() {
-        return logoImage;
+    public String getLogoUrl() {
+        return logoUrl;
     }
 }

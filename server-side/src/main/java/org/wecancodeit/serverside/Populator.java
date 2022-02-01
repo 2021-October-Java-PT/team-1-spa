@@ -17,11 +17,11 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        ProgrammingResource blocklyGames = new ProgrammingResource("Blockly Games", "Blocky offers a variety of games adopting the approach of teaching kids how to code using interactive challenges", "https://blockly.games", "../../../images/blocklygames-logo.png");
-        ProgrammingResource codeCombat = new ProgrammingResource("Code Combat", "CodeCombat is acommunity project,with hundreds of players volunteering to create levels, contribute to our code to add features, fix bugs, playtest, and even translate the game into 50 languages so far.", "https://codecombat.com/home", "resources/static/images/codecombat-logo.png");
-        ProgrammingResource codeOrg = new ProgrammingResource("code.org", "Code.org® is a nonprofit dedicated to expanding access to computer science in schools and increasing participation by young women and students from other underrepresented groups.", "https://code.org/", "server-side/src/main/resources/static/images/codeorg-logo.png");
-        ProgrammingResource crunchzilla = new ProgrammingResource("Crunchzilla", "Crunchzilla is one of the simplest teaching platforms when it comes to boosting your kids' knowledge of coding.", "http://www.crunchzilla.com/code-monster", "jetbrains://idea/navigate/reference?project=server-side&path=static/images/crunchzilla-logo.png");
-        ProgrammingResource scratch = new ProgrammingResource("Scratch", "Scratch is the world's largest free coding community for kids.", "https://scratch.mit.edu/", "scratch-logo.png");
+        ProgrammingResource blocklyGames = new ProgrammingResource("Blockly Games", "Blocky offers a variety of games adopting the approach of teaching kids how to code using interactive challenges", "https://blockly.games", "https://i.ibb.co/Sfk11bJ/blocklygames-logo.png");
+        ProgrammingResource codeCombat = new ProgrammingResource("Code Combat", "CodeCombat is acommunity project,with hundreds of players volunteering to create levels, contribute to our code to add features, fix bugs, playtest, and even translate the game into 50 languages so far.", "https://codecombat.com/home", "https://i.ibb.co/Qp08MrH/codecombat-logo.png");
+        ProgrammingResource codeOrg = new ProgrammingResource("code.org", "Code.org® is a nonprofit dedicated to expanding access to computer science in schools and increasing participation by young women and students from other underrepresented groups.", "https://code.org/", "https://i.ibb.co/G9W0srC/codeorg-logo.png");
+        ProgrammingResource crunchzilla = new ProgrammingResource("Crunchzilla", "Crunchzilla is one of the simplest teaching platforms when it comes to boosting your kids' knowledge of coding.", "http://www.crunchzilla.com/code-monster", "https://i.ibb.co/H7bd7gD/crunchzilla-logo.png");
+        ProgrammingResource scratch = new ProgrammingResource("Scratch", "Scratch is the world's largest free coding community for kids.", "https://scratch.mit.edu/", "https://i.ibb.co/Hd4vfqc/scratch-logo.png");
 
         programmingRepo.save(blocklyGames);
         programmingRepo.save(codeCombat);
