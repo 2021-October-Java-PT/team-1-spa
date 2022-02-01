@@ -10,6 +10,8 @@ import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
 import SpaceResources from "./components/SpaceResources.js";
+import XtraResource from "./components/XtraResource.js"
+import XtraResources from "./components/XtraResources.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 import crud from "./crud/crud.js";
 
@@ -27,6 +29,7 @@ function buildPage() {
   navScience();
   navBrainBreaks();
   navArt();
+  navResources();
 }
 
 function renderHome() {
@@ -44,6 +47,7 @@ function navHome() {
     navScience();
     navBrainBreaks();
     navArt();
+    navResources();
   });
 }
 
@@ -73,18 +77,36 @@ function navArt() {
     );
   });
 }
+//Resources function 
+function navResources() {
+  const resourcesElem = document.querySelector("#resourcesTile");
+  resourcesElem.addEventListener("click", () => {
+    app.innerHTML = XtraResources();
+    retrieveXtraResource();
+  });
 
-
+}
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-
     app.innerHTML = SpaceResources();
     retrieveSpaceResource();
   });
 }
 
+function retrieveXtraResource() {
+  app.addEventListener("click", (event) => {
+    const xtraId = document.querySelector("#xtraId").value;
+    if (event.target.classList.contains("xtra__1")) {
+      apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", (xtraId) => {
+        console.log('XTRA ID', xtraId);
+        app.innerHTML = XtraResource(xtraId);
+      });
+    }
+  });
+
+}
 
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
@@ -106,7 +128,7 @@ function retrieveSpaceResource() {
       });
     }
   });
-  
+
   returnToScience();
 }
 
