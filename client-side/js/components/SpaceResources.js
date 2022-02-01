@@ -7,9 +7,9 @@ export default function SpaceResources() {
     <input type="hidden" id="spaceId" value="MaryJackson"></li>
     <li class="space__2">Chiaki Mukai
     <input type="hidden" id="spaceId" value="Chiaki Mukai"></li>
+    <li class="space__3">Pamela Melroy
+    <input type="hidden" id="spaceId" value="Pamela Melroy"></li>
     </ul>
-        
+    </div>
     `;
 }
-
-
