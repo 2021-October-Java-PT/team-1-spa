@@ -217,6 +217,7 @@ p {
     margin-left: 20rem;
     margin-right: 20rem;
   }
+
   .api-page-2 {
     position: relative;
     width: 50%;
@@ -328,4 +329,12 @@ p {
   button:hover {
     box-shadow: none;
   }
+
+#lingam2{
+  max-width: 100rem;
+}
+
+#lingam3{
+  max-width: 100rem;
+}
 }
