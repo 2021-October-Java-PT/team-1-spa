@@ -12,6 +12,7 @@ import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
 
+
 buildPage();
 
 function buildPage() {

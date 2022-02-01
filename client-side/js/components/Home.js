@@ -41,8 +41,8 @@ export default function Home() {
         </div>
       </div>
       <div class="col-sm-4">
-        <img src="${fishClickerImg}" class="img-responsive margin img-rounded btn btn-primary" id="fishClickerTile" alt="Image"
-          style="display:inline" alt="tech" width="250" height="250">
+        <a href="https://jpwilson2021.github.io/fishClicker/" target="blank"><img src="${fishClickerImg}" class="img-responsive margin img-rounded btn btn-primary" id="fishClickerTile" alt="Image"
+          style="display:inline" alt="tech" width="250" height="250"></a>
         <div class="hover-effect">
           <div class="hover-text">PLAY GAME</div>
         </div>
