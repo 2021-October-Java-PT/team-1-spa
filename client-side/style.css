@@ -65,10 +65,18 @@ p {
   margin-bottom: 0;
   font-size: 16px;
   letter-spacing: 5px;
+  
 }
 
 .navbar-nav li a:hover {
-  color: #1abc9c !important;
+  color: #fff !important;
+}
+.btn-success {
+  background-color: #ffdf2b !important;
+  border-color: #ffdf2b !important;
+}
+.btn-space {
+  margin-right: 15px;
 }
 
 #github,
