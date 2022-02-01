@@ -4,6 +4,7 @@ import BrainBreak from "./components/BrainBreak";
 import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import Melroy from "./components/Melroy.js"
 import Mukai from "./components/Mukai.js";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
@@ -97,8 +98,13 @@ function retrieveSpaceResource() {
         console.log('SPACE ID', spaceId);
         app.innerHTML = Mukai(spaceId);
       });
+    } else if (event.target.classList.contains("space__3")) {
+      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=pamela%20melroy", (spaceId) => {
+        console.log('SPACE ID', spaceId);
+        app.innerHTML = Melroy(spaceId);
+      });
     }
-    });
+  });
   
   returnToScience();
 }
