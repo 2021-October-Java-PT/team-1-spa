@@ -4,6 +4,7 @@ import BrainBreak from "./components/BrainBreak";
 import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import Mukai from "./components/Mukai.js";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
@@ -86,13 +87,19 @@ function navScience() {
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
     const spaceId = document.querySelector("#spaceId").value;
-    if (event.target.classList.contains("space__test")) {
+    if (event.target.classList.contains("space__1")) {
       apiHelpers.getRequest("https://images-api.nasa.gov/search?q=females", (spaceId) => {
         console.log('SPACE ID', spaceId);
         app.innerHTML = SpaceResource(spaceId);
       });
+    } else if (event.target.classList.contains("space__2")) {
+      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=Chiaki%20Mukai", (spaceId) => {
+        console.log('SPACE ID', spaceId);
+        app.innerHTML = Mukai(spaceId);
+      });
     }
-  });
+    });
+  
   returnToScience();
 }
 
