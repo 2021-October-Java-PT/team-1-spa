@@ -11,10 +11,8 @@ import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
 import SpaceResources from "./components/SpaceResources.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
-import crud from "./crud/crud.js";
 
 const app = document.querySelector("#app");
-
 
 buildPage();
 
@@ -74,7 +72,6 @@ function navArt() {
   });
 }
 
-
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
@@ -84,7 +81,6 @@ function navScience() {
     retrieveSpaceResource();
   });
 }
-
 
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
@@ -200,6 +196,7 @@ function returnToAllResources() {
 
 }
 
+//Function to allow user to add resources to API
 function addProgramingResourceToAPI() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-programming-resource__submit")) {
