@@ -25,6 +25,7 @@ function buildPage() {
   navScience();
   navBrainBreaks();
   navArt();
+  mysteryNASA();
 }
 
 function renderHome() {
@@ -42,6 +43,7 @@ function navHome() {
     navScience();
     navBrainBreaks();
     navArt();
+    mysteryNASA();
   });
 }
 
@@ -78,30 +80,31 @@ function navScience() {
   scienceElem.addEventListener("click", () => {
 
     app.innerHTML = SpaceResources();
-    retrieveSpaceResource();
   });
 }
 
-function retrieveSpaceResource() {
+function mysteryNASA() {
+  const nasaElem = document.querySelector("#nasaTile");
+  nasaElem.addEventListener("click", () => {
+    app.innerHTML = SpaceResources();
+    renderSpaceResources();
+  })
+}
+
+function renderSpaceResources() {
+
+const nasaElem = document.querySelector("#nasaTile")
   app.addEventListener("click", (event) => {
-    const spaceId = document.querySelector("#spaceId").value;
-    if (event.target.classList.contains("space__1")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=females", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = SpaceResource(spaceId);
-      });
-    } else if (event.target.classList.contains("space__2")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=Chiaki%20Mukai", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = Mukai(spaceId);
-      });
-    } else if (event.target.classList.contains("space__3")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=pamela%20melroy", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = Melroy(spaceId);
-      });
-    }
-  });
+    const app = document.querySelector('#app');
+    let randIdx = Math.floor(Math.random() * nasaKeywords.length);
+    apiHelpers.getRequest('https://images-api.nasa.gov/search?q=females='${nasaKeywords}[randIdx] 
+      (spaceResources) => {
+        spaceResourcesJson = SpaceResources;
+        app.innerHTML = SpaceResources(SpaceResources);
+      }
+
+      );
+    });
   
   returnToScience();
 }
