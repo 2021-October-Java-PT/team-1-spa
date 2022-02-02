@@ -46,6 +46,8 @@ function navHome() {
     navBrainBreaks();
     navArt();
     mysteryNASA();
+    renderSpaceResourceList()
+    renderSpaceResource()
   });
 }
 
@@ -89,41 +91,40 @@ function mysteryNASA() {
   const nasaElem = document.querySelector("#nasaTile");
   nasaElem.addEventListener("click", () => {
     app.innerHTML = SpaceResources();
-    renderSpaceResources();
+    renderSpaceResource();
   })
 }
 
-function renderSpaceResources() {
-
-const nasaElem = document.querySelector("#nasaTile")
+function renderSpaceResourceList() {
+  const nasaElem = document.querySelector("#nasaTile")
   nasaElem.addEventListener("click", (event) => {
-    const app = document.querySelector('#app');
-    let randIdx = Math.floor(Math.random() * nasaKeywords.length);
-    apiHelpers.getRequest('https://images-api.nasa.gov/search?q=females=' +nasaKeywords[randIdx] 
-      (spaceResources) => {
-        spaceResourcesJson = SpaceResources;
-        app.innerHTML = SpaceResources();
-      }
-    });
-}
+      const app = document.querySelector('#app');
+      let randIdx = Math.floor(Math.random() * nasaKeywords.length);
+      apiHelpers.getRequest('https://images-api.nasa.gov/search?q=females=' + nasaKeywords[randIdx],
+        (spaceResources) => {
+          spaceResourcesJson = SpaceResources;
+          app.innerHTML = SpaceResources(SpaceResources);
+        }
+        );
+      });
+    }
 
-  returnToScience();
-}
 function renderSpaceResource() {
   const app = document.querySelector('#app');
   app.addEventListener('click', (event) => {
     if (event.target.classList.contains('box__title')) {
-    const nasaId =
+      const nasaId =
         event.target.parentNode.querySelector('.id').value;
-        spaceResourcesJson.collection.items.forEach((spaceResource, index) => {
-          let itemIndex = index;
-          if (nasaId === spaceResource.data[0].nasa_id) {
-            app.innerHTML = spaceResourcePage(spaceResource, itemIndex);
-          }
-        });
-      }
-    });
-  }
+      spaceResourcesJson.collection.items.forEach((spaceResource, index) => {
+        let itemIndex = index;
+        if (nasaId === spaceResource.data[0].nasa_id) {
+          app.innerHTML = spaceResource(spaceResource, itemIndex);
+        }
+      });
+    }
+  });
+}
+
 function returnToScience() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnScience")) {
