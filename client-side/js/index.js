@@ -13,6 +13,8 @@ import SpaceResources from "./components/SpaceResources.js";
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
+let nasaKeywords = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
+
 
 buildPage();
 
@@ -94,21 +96,34 @@ function mysteryNASA() {
 function renderSpaceResources() {
 
 const nasaElem = document.querySelector("#nasaTile")
-  app.addEventListener("click", (event) => {
+  nasaElem.addEventListener("click", (event) => {
     const app = document.querySelector('#app');
     let randIdx = Math.floor(Math.random() * nasaKeywords.length);
-    apiHelpers.getRequest('https://images-api.nasa.gov/search?q=females='${nasaKeywords}[randIdx] 
+    apiHelpers.getRequest('https://images-api.nasa.gov/search?q=females=' +nasaKeywords[randIdx] 
       (spaceResources) => {
         spaceResourcesJson = SpaceResources;
-        app.innerHTML = SpaceResources(SpaceResources);
+        app.innerHTML = SpaceResources();
       }
-
-      );
     });
-  
-  returnToScience();
 }
 
+  returnToScience();
+}
+function renderSpaceResource() {
+  const app = document.querySelector('#app');
+  app.addEventListener('click', (event) => {
+    if (event.target.classList.contains('box__title')) {
+    const nasaId =
+        event.target.parentNode.querySelector('.id').value;
+        spaceResourcesJson.collection.items.forEach((spaceResource, index) => {
+          let itemIndex = index;
+          if (nasaId === spaceResource.data[0].nasa_id) {
+            app.innerHTML = spaceResourcePage(spaceResource, itemIndex);
+          }
+        });
+      }
+    });
+  }
 function returnToScience() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnScience")) {
