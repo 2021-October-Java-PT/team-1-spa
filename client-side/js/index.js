@@ -10,6 +10,7 @@ import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
 import SpaceResources from "./components/SpaceResources.js";
+import XtraResource from "./components/XtraResource.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
@@ -29,7 +30,7 @@ function buildPage() {
   navScience();
   navBrainBreaks();
   navArt();
-
+  navXtraResource();
 }
 
 function renderHome() {
@@ -47,7 +48,7 @@ function navHome() {
     navScience();
     navBrainBreaks();
     navArt();
-
+    navXtraResource();
   });
 }
 
