@@ -1,5 +1,6 @@
 import About from "./components/About";
-import Art from "./components/Art.js";
+import ArtResource from "./components/ArtResource.js";
+import ArtResources from "./components/ArtResources.js";
 import BrainBreak from "./components/BrainBreak";
 import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
@@ -17,6 +18,11 @@ let keywordsWomen = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 
 let keywordsMen = ['Charlie Bolden', 'Neil Armstrong', 'Guion Bluford', 'John Glenn', 'Ellison Onizuka', 'Franklin Chang-Diaz', 'John Herrington', 'Michael López-Alegría', 'Ellison Onizuka'];
 let keywordsPlanet = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
 let keywordsNasaMisc = ['Hubble', 'Milky Way', 'Orion', 'Big Bang', 'Galaxies', 'Asteroid', 'Stars' ];
+
+let artMask = ["7581", "318622", "310279", "547257", "22739", "311950", "35152" ];
+let artMusic= ["503530", "561518", "310563", "5394", "546194", "310532" ];
+
+
 
 buildPage();
 
@@ -66,21 +72,55 @@ function navContact() {
   });
 }
 
-function navArt() {
-  const lingCover = document.querySelector("#artTile");
-  lingCover.addEventListener("click", () => {
-    let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257","324029", "75831", "49381" ];
-    apiHelpers.getRequest(
-      `https://collectionapi.metmuseum.org/public/collection/v1/objects/${
-        artRandom[Math.floor(Math.random() * 9)]
-      }`,
-      (metObject) => {
-        console.log("MET OBJECT", metObject);
-        app.innerHTML = Art(metObject);
-      }
-    );
+
+function navArt(){
+  const artElem =  document.querySelector("#artTile");
+  artElem.addEventListener("click", ()=> {
+    app.innerHTML = ArtResources();
+    retrieveArtResources();
   });
+  
 }
+
+function retrieveArtResources() {
+  app.addEventListener("click", (event) => {
+    const artId = document.querySelector("#artId").value;
+    if (event.target.classList.contains("artMask")){
+      let artRand = Math.floor(Math.random()* artMask.length);
+      let value = artMask[artRand];
+      console.log(artRand);
+      console.log(value);
+      apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
+        app.innerHTML = ArtResource(artResource)
+      });
+    }
+   if (event.target.classList.contains ("artMusic")){
+    let artRand = Math.floor(Math.random()* artMusic.length);
+    let value = artMusic[artRand];
+    console.log(artRand);
+    console.log(value);
+    apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
+      app.innerHTML = ArtResource(artResource)
+    });
+   }
+  })
+}
+
+// function navArt() {
+//   const lingCover = document.querySelector("#artTile");
+//   lingCover.addEventListener("click", () => {
+//     let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257","324029", "75831", "49381" ];
+//     apiHelpers.getRequest(
+//       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${
+//         artRandom[Math.floor(Math.random() * 9)]
+//       }`,
+//       (metObject) => {
+//         console.log("MET OBJECT", metObject);
+//         app.innerHTML = Art(metObject);
+//       }
+//     );
+//   });
+// }
 
 //Lyzz's function
 function navScience() {
