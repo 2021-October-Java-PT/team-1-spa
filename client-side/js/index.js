@@ -82,8 +82,6 @@ function navArt() {
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-    // apiHelpers.getRequest("https://images-api.nasa.gov/search?q=women", (spaceResource) => {
-    //   console.log('SPACE RESOURCE', spaceResource);
     let randIdx = Math.floor(Math.random() * keywords.length);
     let value = keywords[randIdx];
     console.log(randIdx);
@@ -91,8 +89,8 @@ function navScience() {
     apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
     app.innerHTML = SpaceResources(spaceResource);
   });
-    app.innerHTML = SpaceResources();
     retrieveSpaceResource();
+    returnToScience();
   });
 }
 
@@ -107,30 +105,6 @@ function navXtraResource() {
   });
 }
 
-function retrieveSpaceResource() {
-  app.addEventListener("click", (event) => {
-    const spaceId = document.querySelector("#spaceId").value;
-    if (event.target.classList.contains("space__1")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=females", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = SpaceResource(spaceId);
-      });
-    } else if (event.target.classList.contains("space__2")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=Chiaki%20Mukai", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = Mukai(spaceId);
-      });
-    } else if (event.target.classList.contains("space__3")) {
-      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=pamela%20melroy", (spaceId) => {
-        console.log('SPACE ID', spaceId);
-        app.innerHTML = Melroy(spaceId);
-      });
-    }
-  });
-
-  returnToScience();
-}
-
 function returnToScience() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnScience")) {
@@ -138,15 +112,7 @@ function returnToScience() {
     }
   });
 }
-
-  function returnToScience() {
-    app.addEventListener("click", (event) => {
-      if (event.target.classList.contains("returnScience")) {
-        app.innerHTML = SpaceResources();
-      }
-    });
-  }
-
+  
   function navBrainBreaks() {
     const brainBreakElem = document.querySelector("#brainBreakTile");
     brainBreakElem.addEventListener("click", () => {

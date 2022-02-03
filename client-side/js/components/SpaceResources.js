@@ -6,6 +6,7 @@ export default function SpaceResources(spaceResource) {
     <h1>Girls Rock! Look how many women work in Space!</h1>
     <img src="${spaceResource.collection.items[i].links[0].href}"></img>
     <h2>${spaceResource.collection.items[i].data[0].description}</h2>
+    <button class="returnScience btn btn-info">Return to Science</button>
     `;
 }
 
