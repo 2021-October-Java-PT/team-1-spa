@@ -79,30 +79,39 @@ function navArt() {
 
 //Lyzz's function
 function navScience() {
-  app.addEventListener("click", (event) => {
-    apiHelpers.getRequest("https://images-api.nasa.gov/search?q=women", (spaceResource) => {
-      console.log('SPACE RESOURCE', spaceResource);
-      app.innerHTML = SpaceResource(spaceResource);
-    })
-    renderSpaceResource();
+  const scienceElem = document.querySelector("#scienceTile");
+  scienceElem.addEventListener("click", () => {
+    // apiHelpers.getRequest("https://images-api.nasa.gov/search?q=women", (spaceResource) => {
+    //   console.log('SPACE RESOURCE', spaceResource);
+    let randIdx = Math.floor(Math.random() * keywords.length);
+    let value = keywords[randIdx];
+    console.log(randIdx);
+    console.log(value);
+    apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
+    app.innerHTML = SpaceResources(spaceResource);
+  });
+      // app.innerHTML = SpaceResource();
+    // })
+    // renderSpaceResource();
+    // https://images-api.nasa.gov/asset/${id}
   });
 }
 
-  function renderSpaceResource() {
-    app.addEventListener("click", (event) => {
-      const spaceId = document.querySelector("#spaceId").value;
-      if (event.target.classList.contains("mystery__person")) {
-        let randIdx = Math.floor(Math.random() * keywords.length);
-        apiHelpers.getRequest(
-          'https://images-api.nasa.gov/search?q=women' + keywords[randIdx], () => {
-            console.log('FIRE!');
-            spaceResourcesJson = SpaceResource;
-            app.innerHTML = SpaceResource(spaceResource);
-          });
-      }
-    });
-      returnToScience()
-  }
+  // function renderSpaceResource() {
+  //   const science = document.querySelector("#scienceTile");
+  //   science.addEventListener("click", () => {
+  //     // const spaceId = document.querySelector("#spaceId").value;
+  //     // if (event.target.classList.contains("mystery__person")) {
+  //       let randIdx = Math.floor(Math.random() * keywords.length);
+  //       apiHelpers.getRequest(
+  //         'https://images-api.nasa.gov/search?q=women' + keywords[randIdx], spaceResource => {
+  //           console.log('FIRE!');
+  //           // spaceResourcesJson = SpaceResource;
+  //           app.innerHTML = SpaceResource(spaceResource);
+  //         });
+  //     }
+  //     returnToScience()
+  // }
 
   function returnToScience() {
     app.addEventListener("click", (event) => {

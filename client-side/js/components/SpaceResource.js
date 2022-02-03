@@ -1,12 +1,7 @@
-import apiHelpers from "../api-helpers/apiHelpers.js";
+//import apiHelpers from "../api-helpers/apiHelpers.js";
 
-export default function SpaceResource(){
-   
-    
-    const imgSection =
-
-
-    return `
-            
-    `;  
+export default function SpaceResource(spaceResource){
+    return`
+    <h1>Test</h1>
+   `;  
 }
