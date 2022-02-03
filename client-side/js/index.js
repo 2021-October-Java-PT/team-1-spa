@@ -4,7 +4,7 @@ import BrainBreak from "./components/BrainBreak";
 import BrainBreaks from "./components/BrainBreaks";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
-import Melroy from "./components/Melroy.js"
+import Melroy from "./components/Melroy.js";
 import Mukai from "./components/Mukai.js";
 import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
@@ -14,6 +14,7 @@ import XtraResource from "./components/XtraResource.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
+
 let keywordsWomen = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
 let keywordsMen = ['Charlie Bolden', 'Neil Armstrong', 'Guion Bluford', 'John Glenn', 'Ellison Onizuka', 'Franklin Chang-Diaz', 'John Herrington', 'Michael López-Alegría', 'Ellison Onizuka'];
 let keywordsPlanet = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
@@ -70,9 +71,13 @@ function navContact() {
 function navArt() {
   const lingCover = document.querySelector("#artTile");
   lingCover.addEventListener("click", () => {
+    let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257","324029", "75831", "49381" ];
     apiHelpers.getRequest(
-      "https://collectionapi.metmuseum.org/public/collection/v1/objects/39359",
+      `https://collectionapi.metmuseum.org/public/collection/v1/objects/${
+        artRandom[Math.floor(Math.random() * 9)]
+      }`,
       (metObject) => {
+        console.log("MET OBJECT", metObject);
         app.innerHTML = Art(metObject);
       }
     );
@@ -88,6 +93,16 @@ function navScience() {
   });
 }
 
+
+function navXtraResource() {
+  const resourcesElem = document.querySelector("#resourcesTile");
+  resourcesElem.addEventListener("click", () => {
+    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", (xtraResource) => {
+      console.log('XTRA RESOURCE', xtraResource);
+      app.innerHTML = XtraResource(xtraResource);
+    });
+  });
+}
 
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
@@ -180,12 +195,15 @@ function returnToBreaks() {
 function navTechnology() {
   const technologyElem = document.querySelector("#technologyTile");
   technologyElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-      app.innerHTML = ProgrammingResources(programmingResources);
-    })
+    apiHelpers.getRequest(
+      "http://localhost:8080/api/programming-resources",
+      (programmingResources) => {
+        app.innerHTML = ProgrammingResources(programmingResources);
+      }
+    );
     renderProgrammingResource();
-    addProgramingResourceToAPI()
-  })
+    addProgramingResourceToAPI();
+  });
 }
 
 //Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
@@ -219,25 +237,35 @@ function returnToAllResources() {
       );
     }
   });
-
 }
 
-//Function to allow user to add resources to API
 function addProgramingResourceToAPI() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-programming-resource__submit")) {
-      const addResourceName = event.target.parentElement.querySelector(".add-programming-resource__name").value;
-      const addResourceDescription = event.target.parentElement.querySelector(".add-programming-resource__description").value;
-      const addResourceUrl = event.target.parentElement.querySelector(".add-programming-resource__website__url").value;
-      const addResourceLogo = event.target.parentElement.querySelector(".add-programming-resource__website__logoLink").value;
+      const addResourceName = event.target.parentElement.querySelector(
+        ".add-programming-resource__name"
+      ).value;
+      const addResourceDescription = event.target.parentElement.querySelector(
+        ".add-programming-resource__description"
+      ).value;
+      const addResourceUrl = event.target.parentElement.querySelector(
+        ".add-programming-resource__website__url"
+      ).value;
+      const addResourceLogo = event.target.parentElement.querySelector(
+        ".add-programming-resource__website__logoLink"
+      ).value;
 
-      apiHelpers.postRequest("http://localhost:8080/api/programming-resources/add-resource", {
+      apiHelpers.postRequest(
+        "http://localhost:8080/api/programming-resources/add-resource",
+        {
           name: addResourceName,
           description: addResourceDescription,
           url: addResourceUrl,
-          logo: addResourceLogo
+          logo: addResourceLogo,
         },
-        (programmingResources) => (app.innerHTML = ProgrammingResources(programmingResources)));
+        (programmingResources) =>
+          (app.innerHTML = ProgrammingResources(programmingResources))
+      );
     }
   });
 }
