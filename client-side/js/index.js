@@ -64,10 +64,10 @@ function navContact() {
 function navArt() {
   const lingCover = document.querySelector("#artTile");
   lingCover.addEventListener("click", () => {
-    let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257"];
+    let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257","324029", "75831", "49381" ];
     apiHelpers.getRequest(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${
-        artRandom[Math.floor(Math.random() * 6)]
+        artRandom[Math.floor(Math.random() * 9)]
       }`,
       (metObject) => {
         console.log("MET OBJECT", metObject);
