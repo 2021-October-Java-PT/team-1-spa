@@ -1,11 +1,19 @@
-export default function SpaceResources(spaceResource) {
-    console.log('SPACE RESOURCE', spaceResource);
-    let i = Math.floor(Math.random() * 10);
-    console.log(i);
-    return `
-    <h1>Girls Rock! Look how many women work in Space!</h1>
-    <img src="${spaceResource.collection.items[i].links[0].href}"></img>
-    <h2>${spaceResource.collection.items[i].data[0].description}</h2>
-    `;
-}
+//import apiHelpers from "../api-helpers/apiHelpers.js";
 
+import sciBox from "../../images/sci-box.png";
+
+export default function SpaceResource(){
+    return`
+    <div class="api-topics">
+        <ul>     
+            <li class="btn btn-info"><img src="${sciBox}" class="space__activityWomen">
+                <input type="hidden" id="spaceId" value="Mystery Women"></li>
+            <li class="btn btn-info"><img src="${sciBox}" class="space__activityMen">
+                <input type="hidden" id="spaceId" value="Mystery Men"></li>
+            <li class="btn btn-info"><img src="${sciBox}" class="space__activityPlanets">
+                <input type="hidden" id="spaceId" value="Mystery Planets"></li>
+            <li class="btn btn-info"><img src="${sciBox}" class="space__activityNasaMisc">
+                <input type="hidden" id="spaceId" value="Mystery Nasa Misc"></li>
+    </div>    
+   `;  
+}
