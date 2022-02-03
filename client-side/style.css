@@ -370,4 +370,22 @@ ul {
   #lingam3 {
     max-width: 100rem;
   }
+
+  /* sci and art api page */
+  .sci-art-pg{
+    position: relative;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sci-art-pg h3{
+    font-weight: 300;
+    font-size: 25px;
+  }
+  .sci-banner{
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+  }
 }
