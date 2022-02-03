@@ -10,6 +10,7 @@ import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
 import SpaceResources from "./components/SpaceResources.js";
+import XtraResource from "./components/XtraResource.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
@@ -28,7 +29,7 @@ function buildPage() {
   navScience();
   navBrainBreaks();
   navArt();
-
+  navXtraResource();
 }
 
 function renderHome() {
@@ -46,7 +47,7 @@ function navHome() {
     navScience();
     navBrainBreaks();
     navArt();
-
+    navXtraResource();
   });
 }
 
@@ -90,7 +91,51 @@ function navScience() {
     apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
     app.innerHTML = SpaceResources(spaceResource);
   });
-    
+    app.innerHTML = SpaceResources();
+    retrieveSpaceResource();
+  });
+}
+
+
+function navXtraResource() {
+  const resourcesElem = document.querySelector("#resourcesTile");
+  resourcesElem.addEventListener("click", () => {
+    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", (xtraResource) => {
+      console.log('XTRA RESOURCE', xtraResource);
+      app.innerHTML = XtraResource(xtraResource);
+    });
+  });
+}
+
+function retrieveSpaceResource() {
+  app.addEventListener("click", (event) => {
+    const spaceId = document.querySelector("#spaceId").value;
+    if (event.target.classList.contains("space__1")) {
+      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=females", (spaceId) => {
+        console.log('SPACE ID', spaceId);
+        app.innerHTML = SpaceResource(spaceId);
+      });
+    } else if (event.target.classList.contains("space__2")) {
+      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=Chiaki%20Mukai", (spaceId) => {
+        console.log('SPACE ID', spaceId);
+        app.innerHTML = Mukai(spaceId);
+      });
+    } else if (event.target.classList.contains("space__3")) {
+      apiHelpers.getRequest("https://images-api.nasa.gov/search?q=pamela%20melroy", (spaceId) => {
+        console.log('SPACE ID', spaceId);
+        app.innerHTML = Melroy(spaceId);
+      });
+    }
+  });
+
+  returnToScience();
+}
+
+function returnToScience() {
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("returnScience")) {
+      app.innerHTML = SpaceResources();
+    }
   });
 }
 
