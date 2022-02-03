@@ -2,6 +2,10 @@ import sciBox from "../../images/sci-box.png";
 
 export default function SpaceResource(){
     return`
+    <div class="api-page-container">
+    <div class="api-title">
+    <h1>1, 2, 3 Blast Off!</h1>
+    </div>
     <div class="api-topics">
         <ul>     
             <li class="btn btn-info topic-list"><img src="${sciBox}" class="space__activityWomen topic-tile">
