@@ -14,6 +14,7 @@ export default function XtraResource(xtraResource) {
     </a></div>`;
 
     return `
+    <div class="container-fluid sci-art-pg">
     <h1>NASA Picture of the Day:</h1>
     <h2>Date: ${xtraResource.date}</h2>
     <h3>Title: ${xtraResource.title}</h3>
@@ -21,6 +22,7 @@ export default function XtraResource(xtraResource) {
     <a href="${xtraResource.url}</a>
     <div id="media-section">
         ${xtraResource.media_type === "video" ? videoSection : imageSection}
+    </div>
     </div>
 `;
 }
