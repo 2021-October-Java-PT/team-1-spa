@@ -90,28 +90,9 @@ function navScience() {
     apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
     app.innerHTML = SpaceResources(spaceResource);
   });
-      // app.innerHTML = SpaceResource();
-    // })
-    // renderSpaceResource();
-    // https://images-api.nasa.gov/asset/${id}
+    
   });
 }
-
-  // function renderSpaceResource() {
-  //   const science = document.querySelector("#scienceTile");
-  //   science.addEventListener("click", () => {
-  //     // const spaceId = document.querySelector("#spaceId").value;
-  //     // if (event.target.classList.contains("mystery__person")) {
-  //       let randIdx = Math.floor(Math.random() * keywords.length);
-  //       apiHelpers.getRequest(
-  //         'https://images-api.nasa.gov/search?q=women' + keywords[randIdx], spaceResource => {
-  //           console.log('FIRE!');
-  //           // spaceResourcesJson = SpaceResource;
-  //           app.innerHTML = SpaceResource(spaceResource);
-  //         });
-  //     }
-  //     returnToScience()
-  // }
 
   function returnToScience() {
     app.addEventListener("click", (event) => {
