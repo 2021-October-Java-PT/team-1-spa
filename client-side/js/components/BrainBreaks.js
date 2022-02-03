@@ -6,23 +6,23 @@ export default function BrainBreaks() {
     </div>
     <div class="api-topics">
         <ul>     
-            <li class="brain-breaks__activity btn btn-info">education
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="education"></li>
-            <li class="brain-breaks__activity btn btn-info">recreational
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="recreational"></li>
-            <li class="brain-breaks__activity btn btn-info">social
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="social"></li>
-            <li class="brain-breaks__activity btn btn-info">diy
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="diy"></li>
-            <li class="brain-breaks__activity btn btn-info">charity
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="charity"></li>
-            <li class="brain-breaks__activity btn btn-info">cooking
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="cooking"></li>
-            <li class="brain-breaks__activity btn btn-info">relaxation
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="relaxation"></li>
-            <li class="brain-breaks__activity btn btn-info">music
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="music"></li>
-            <li class="brain-breaks__activity btn btn-info">busywork
+            <li class="brain-breaks__activity btn btn-info">MYSTERY TOPIC
                 <input type="hidden" id="breakId" value="busywork"></li>
         </ul>
         <h2>Number of participants:</h2>

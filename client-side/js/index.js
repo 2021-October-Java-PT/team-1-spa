@@ -228,3 +228,13 @@ function addProgramingResourceToAPI() {
     }
   });
 }
+//shuffle
+var $ulTopic = $('.ulTopic'),
+  $ulList = $ulTopic.children();
+
+$('button').click(function() {
+  // sort the elements
+  $ulList.sort(function() {return Math.random() - .5; });
+  // update dom with new sort
+  $ulTopic.append($ulList);
+})

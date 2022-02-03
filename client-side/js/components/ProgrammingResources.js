@@ -1,3 +1,5 @@
+import techBoxImg from "../../images/tech-box.png";
+
 export default function ProgrammingResources(programmingResources) {
     return `
     <div class="api-page-container">
@@ -5,16 +7,17 @@ export default function ProgrammingResources(programmingResources) {
         <h1>Let's Learn to Code!</h1>
     </div>
     <div class="api-topics">
-        <ul>
+    <ul class="ulTopic">
             ${programmingResources.map(programmingResource => {
             return `
-                <li class="programming-resource__list btn btn-info">${programmingResource.name}
+                <li class="programming-resource__list ulList btn btn-info">MYSTERY TOPIC
                     <input type="hidden" id="programmingLanguageId" value="${programmingResource.id}">
                 </li>
             `;
         }).join("")}
         </ul>
-    </div>
+        <button>Shuffle</button>
+        </div>               
     <div class="pr-form-body col-xs-1 center-block">
         <div class="pr-form-cont">
             <div class="brand-logo"></div>
