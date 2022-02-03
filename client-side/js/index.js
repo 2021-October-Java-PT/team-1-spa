@@ -15,7 +15,6 @@ import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
 
-
 buildPage();
 
 function buildPage() {
@@ -84,6 +83,7 @@ function navScience() {
     retrieveSpaceResource();
   });
 }
+
 
 function navXtraResource() {
   const resourcesElem = document.querySelector("#resourcesTile");
@@ -209,6 +209,7 @@ function returnToAllResources() {
 
 }
 
+//Function to allow user to add resources to API
 function addProgramingResourceToAPI() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-programming-resource__submit")) {
