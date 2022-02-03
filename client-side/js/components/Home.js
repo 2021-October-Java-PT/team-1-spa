@@ -1,4 +1,3 @@
-import JACVideo from "../../images/JACvideo.mp4";
 import artImg from "../../images/art.png";
 import brainBreakImg from "../../images/brainBreak.png";
 import fishClickerImg from "../../images/fishClicker.png";
@@ -8,14 +7,6 @@ import techImg from "../../images/tech.png";
 
 export default function Home() {
   return `
-    <div class="vid-cont">
-      <div class="jac-vid embed-responsive embed-responsive-16by9">
-        <video width="320" height="240" controls>
-        <source src="${JACVideo}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
     <div class="container-fluid api-button text-center" id="app">
     <h3 class="margin" id="title">DISCOVER KNOWLEDGE AND ADVENTURE</h3><br>
     <div class="row">

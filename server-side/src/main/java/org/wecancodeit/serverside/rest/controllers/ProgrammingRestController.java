@@ -28,7 +28,7 @@ public class ProgrammingRestController {
     }
 
     @PostMapping("/api/programming-resources/add-resource")
-    public Collection<ProgrammingResource> addProgrammingResource(@RequestBody String body) throws JSONException {
+    public String addProgrammingResource(@RequestBody String body) throws JSONException {
         JSONObject newResource = new JSONObject(body);
         String name = newResource.getString("name");
         String description = newResource.getString("description");
@@ -40,9 +40,11 @@ public class ProgrammingRestController {
         if (resourceToAddOpt.isEmpty()) {
             ProgrammingResource resourceToAdd = new ProgrammingResource(name, description, url, logoLink);
             programmingRepo.save(resourceToAdd);
+            return "redirect:/api/programming-resources";
         }
 
-        return (Collection<ProgrammingResource>) programmingRepo.findAll();
+        return "redirect:/api/programming-resources";
+//        return (Collection<ProgrammingResource>) programmingRepo.findAll();
     }
 
 }
