@@ -10,6 +10,7 @@ import ProgrammingResource from "./components/ProgrammingResource.js";
 import ProgrammingResources from "./components/ProgrammingResources.js";
 import SpaceResource from "./components/SpaceResource.js";
 import SpaceResources from "./components/SpaceResources.js";
+import XtraResource from "./components/XtraResource.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
@@ -25,6 +26,7 @@ function buildPage() {
   navScience();
   navBrainBreaks();
   navArt();
+  navXtraResource();
 }
 
 function renderHome() {
@@ -42,6 +44,7 @@ function navHome() {
     navScience();
     navBrainBreaks();
     navArt();
+    navXtraResource();
   });
 }
 
@@ -76,9 +79,19 @@ function navArt() {
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
-
     app.innerHTML = SpaceResources();
     retrieveSpaceResource();
+  });
+}
+
+
+function navXtraResource() {
+  const resourcesElem = document.querySelector("#resourcesTile");
+  resourcesElem.addEventListener("click", () => {
+    apiHelpers.getRequest("https://api.nasa.gov/planetary/apod?api_key=eWhcVkX9a7jqZ58hERTeYYEoHEdjjXN5gea5XwRC", (xtraResource) => {
+      console.log('XTRA RESOURCE', xtraResource);
+      app.innerHTML = XtraResource(xtraResource);
+    });
   });
 }
 
@@ -102,7 +115,7 @@ function retrieveSpaceResource() {
       });
     }
   });
-  
+
   returnToScience();
 }
 

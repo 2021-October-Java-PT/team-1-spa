@@ -6,6 +6,5 @@ export default function SpaceResource(spaceResource){
     <a href="https://en.wikipedia.org/wiki/Mary_Jackson_(engineer)">Click here to learn more!</a>
     <button class="returnScience">Return to Science</button>
    
-    </div>
     `;  
 }
