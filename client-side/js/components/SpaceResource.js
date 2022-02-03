@@ -1,5 +1,11 @@
+//import apiHelpers from "../api-helpers/apiHelpers.js";
+
 export default function SpaceResource(spaceResource){
-    return `
+    return`
+    <h1>Test</h1>
+   `;  
+
+  return `
    <h1>Mary Jackson:</h1>
     <img src= ${spaceResource.collection.items[40].links[0].href}></img>
     <h2>${spaceResource.collection.items[58].data[0].description}</h2> 

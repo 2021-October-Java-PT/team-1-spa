@@ -14,6 +14,9 @@ import XtraResource from "./components/XtraResource.js"
 import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
+let spaceResourcesJson;
+let keywords = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
+
 
 buildPage();
 
@@ -79,6 +82,15 @@ function navArt() {
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
   scienceElem.addEventListener("click", () => {
+    // apiHelpers.getRequest("https://images-api.nasa.gov/search?q=women", (spaceResource) => {
+    //   console.log('SPACE RESOURCE', spaceResource);
+    let randIdx = Math.floor(Math.random() * keywords.length);
+    let value = keywords[randIdx];
+    console.log(randIdx);
+    console.log(value);
+    apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
+    app.innerHTML = SpaceResources(spaceResource);
+  });
     app.innerHTML = SpaceResources();
     retrieveSpaceResource();
   });
@@ -127,104 +139,112 @@ function returnToScience() {
   });
 }
 
-function navBrainBreaks() {
-  const brainBreakElem = document.querySelector("#brainBreakTile");
-  brainBreakElem.addEventListener("click", () => {
-    // const input = prompt("Please enter an activity type of " +
-    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
-    // alert(input);
-    app.innerHTML = BrainBreaks();
-    renderBrainBreak();
-  });
-}
+  function returnToScience() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("returnScience")) {
+        app.innerHTML = SpaceResources();
+      }
+    });
+  }
 
-function renderBrainBreak() {
-  app.addEventListener("click", (event) => {
-    const breakId = event.target.querySelector("#breakId").value;
-    if (event.target.classList.contains("brain-breaks__activity")) {
-      apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
-        app.innerHTML = BrainBreak(brainBreak);
-      });
-    } else if (event.target.classList.contains("brain-breaks__participants")) {
-      apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
-        app.innerHTML = BrainBreak(brainBreak);
-      });
-    }
-  });
-  returnToBreaks();
-}
-
-function returnToBreaks() {
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("returnBreaks")) {
+  function navBrainBreaks() {
+    const brainBreakElem = document.querySelector("#brainBreakTile");
+    brainBreakElem.addEventListener("click", () => {
+      // const input = prompt("Please enter an activity type of " +
+      // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
+      // alert(input);
       app.innerHTML = BrainBreaks();
-    }
-  });
-}
+      renderBrainBreak();
+    });
+  }
 
-//Madison's Functions
-//Function to navigate to all ProgrammingResources page by clicking on tile
-function navTechnology() {
-  const technologyElem = document.querySelector("#technologyTile");
-  technologyElem.addEventListener("click", () => {
-    apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
-      app.innerHTML = ProgrammingResources(programmingResources);
+  function renderBrainBreak() {
+    app.addEventListener("click", (event) => {
+      const breakId = event.target.querySelector("#breakId").value;
+      if (event.target.classList.contains("brain-breaks__activity")) {
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?type=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
+      } else if (event.target.classList.contains("brain-breaks__participants")) {
+        apiHelpers.getRequest(`http://www.boredapi.com/api/activity?participants=${breakId}`, brainBreak => {
+          app.innerHTML = BrainBreak(brainBreak);
+        });
+      }
+    });
+    returnToBreaks();
+  }
+
+  function returnToBreaks() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("returnBreaks")) {
+        app.innerHTML = BrainBreaks();
+      }
+    });
+  }
+
+  //Madison's Functions
+  //Function to navigate to all ProgrammingResources page by clicking on tile
+  function navTechnology() {
+    const technologyElem = document.querySelector("#technologyTile");
+    technologyElem.addEventListener("click", () => {
+      apiHelpers.getRequest("http://localhost:8080/api/programming-resources", programmingResources => {
+        app.innerHTML = ProgrammingResources(programmingResources);
+      })
+      renderProgrammingResource();
+      addProgramingResourceToAPI()
     })
-    renderProgrammingResource();
-    addProgramingResourceToAPI()
-  })
-}
+  }
 
-//Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
-function renderProgrammingResource() {
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("programming-resource__list")) {
-      const programmingResourceId = event.target.querySelector(
-        "#programmingLanguageId"
-      ).value;
-      apiHelpers.getRequest(
-        `http://localhost:8080/api/programming-resources/${programmingResourceId}`,
-        (programmingResource) => {
-          app.innerHTML = ProgrammingResource(programmingResource);
-        }
-      );
-      returnToAllResources();
-      addProgramingResourceToAPI();
-    }
-  });
-}
+  //Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
+  function renderProgrammingResource() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("programming-resource__list")) {
+        const programmingResourceId = event.target.querySelector(
+          "#programmingLanguageId"
+        ).value;
+        apiHelpers.getRequest(
+          `http://localhost:8080/api/programming-resources/${programmingResourceId}`,
+          (programmingResource) => {
+            app.innerHTML = ProgrammingResource(programmingResource);
+          }
+        );
+        returnToAllResources();
+        addProgramingResourceToAPI();
+      }
+    });
+  }
 
-//Function to return to all ProgrammingResources page by clicking on button in individual ProgrammingResource page
-function returnToAllResources() {
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("returnResources")) {
-      apiHelpers.getRequest(
-        "http://localhost:8080/api/programming-resources",
-        (programmingResources) => {
-          app.innerHTML = ProgrammingResources(programmingResources);
-        }
-      );
-    }
-  });
+  //Function to return to all ProgrammingResources page by clicking on button in individual ProgrammingResource page
+  function returnToAllResources() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("returnResources")) {
+        apiHelpers.getRequest(
+          "http://localhost:8080/api/programming-resources",
+          (programmingResources) => {
+            app.innerHTML = ProgrammingResources(programmingResources);
+          }
+        );
+      }
+    });
 
-}
+  }
 
-//Function to allow user to add resources to API
-function addProgramingResourceToAPI() {
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("add-programming-resource__submit")) {
-      const addResourceName = event.target.parentElement.querySelector(".add-programming-resource__name").value;
-      const addResourceDescription = event.target.parentElement.querySelector(".add-programming-resource__description").value;
-      const addResourceUrl = event.target.parentElement.querySelector(".add-programming-resource__website__url").value;
-      const addResourceLogo = event.target.parentElement.querySelector(".add-programming-resource__website__logoLink").value;
+  //Function to allow user to add resources to API
+  function addProgramingResourceToAPI() {
+    app.addEventListener("click", (event) => {
+      if (event.target.classList.contains("add-programming-resource__submit")) {
+        const addResourceName = event.target.parentElement.querySelector(".add-programming-resource__name").value;
+        const addResourceDescription = event.target.parentElement.querySelector(".add-programming-resource__description").value;
+        const addResourceUrl = event.target.parentElement.querySelector(".add-programming-resource__website__url").value;
+        const addResourceLogo = event.target.parentElement.querySelector(".add-programming-resource__website__logoLink").value;
 
-      apiHelpers.postRequest("http://localhost:8080/api/programming-resources/add-resource", {
-          name: addResourceName,
-          description: addResourceDescription,
-          url: addResourceUrl,
-          logo: addResourceLogo
-        },
-        (programmingResources) => (app.innerHTML = ProgrammingResources(programmingResources)));
-    }
-  });
-}
+        apiHelpers.postRequest("http://localhost:8080/api/programming-resources/add-resource", {
+            name: addResourceName,
+            description: addResourceDescription,
+            url: addResourceUrl,
+            logo: addResourceLogo
+          },
+          (programmingResources) => (app.innerHTML = ProgrammingResources(programmingResources)));
+      }
+    });
+  }
