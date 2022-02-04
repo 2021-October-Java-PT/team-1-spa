@@ -25,7 +25,7 @@ export default function ProgrammingResources(programmingResources) {
     <div class="pr-form-body col-xs-1 center-block">
         <div class="pr-form-cont">
             <div class="brand-logo"></div>
-                <form class="add-programming-resource inputs">
+                <form class="add-programming-resource inputs container-small">
                     <label>Enter name of Programming Resource</label>
                     <input type="text" class="input-width add-programming-resource__name" placeholder="Enter Name of Programming Resource">
                     <input type="text" class="input-width add-programming-resource__description" placeholder="Enter Description of Programming Resource">

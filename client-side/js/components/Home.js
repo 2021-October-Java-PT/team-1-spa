@@ -1,4 +1,5 @@
 import artImg from "../../images/art.png";
+import bannerHome from "../../images/homeBanner.png";
 import brainBreakImg from "../../images/brainBreak.png";
 import fishClickerImg from "../../images/fishClicker.png";
 import resourcesImg from "../../images/img-day.png";
@@ -54,9 +55,12 @@ export default function Home() {
           <div class="hover-text">LEARN MORE</div>
         </div>
       </div>
-    </div>  
-    </div>
+    </div> 
   </div>
+  <div class="container-fluid">
+    <img src="${bannerHome}" class="img-responsive" >
+    </div>  
+</div>
     `;
 
 }

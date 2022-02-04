@@ -52,6 +52,10 @@ p {
   background-color: #8b97fd;
   color: #fff;
 }
+.ftr p a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .container-fluid {
   padding-top: 70px;
@@ -280,7 +284,7 @@ ul {
   .pr-form-cont {
     position: relative;
     width: 500px;
-    height: 680px;
+    height: 600px;
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
@@ -310,6 +314,7 @@ ul {
   .inputs {
     text-align: left;
     margin-top: 30px;
+    width: 100%;
   }
 
   label,
@@ -321,6 +326,9 @@ ul {
     border: none;
     outline: none;
     box-sizing: border-box;
+  }
+  button{
+    color: white;
   }
 
   label {
@@ -363,6 +371,7 @@ ul {
   button:hover {
     box-shadow: none;
   }
+  
 
   #lingam2 {
     max-width: 100rem;
@@ -384,6 +393,12 @@ ul {
     font-weight: 300;
     font-size: 25px;
   }
+  .sci-art-pg img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
   .sci-banner {
     margin-bottom: 20px;
@@ -391,4 +406,17 @@ ul {
     margin-right: auto;
     height: 300px;
   }
+
+  .bios{
+    position: relative;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.bnr-home{
+  max-width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
 }

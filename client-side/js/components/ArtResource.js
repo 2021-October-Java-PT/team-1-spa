@@ -1,9 +1,14 @@
+import artBanner from "../../images/artBanner.png";
+
 export default function ArtResources(artResource) {
   let a = Math.floor(Math.random() * 6);
   console.log(a);
 
   return `
-    <div>
+  <div class="b-sci">
+  <img src="${artBanner}" class="sci-banner"></img>
+</div>
+    <div class="container-fluid sci-art-pg">
                   
                   <h1> Department </h1>
                   <h2 id="pieceTitle">${artResource.department}<h2>
