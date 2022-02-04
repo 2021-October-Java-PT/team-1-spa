@@ -10,7 +10,7 @@ export default function Art(metObject) {
               <h2>${metObject.objectName}</h2>
               <h4> Title: ${metObject.title}</h4>
 
-              <h2>What is this art's Medium</h2>
+              <h2>What is this art's Medium?</h2>
               <h4>Pss! What is it made out of?</h4>
               <p>${metObject.medium}</p>
 
@@ -25,7 +25,7 @@ export default function Art(metObject) {
 
               <h2>Learn More At the Met Museum Website</h2>
               <h4>Copy and past in url box, please!</h4>
-              <p> ${metObject.objectURL}</p>
+              <a href="${metObject.objectURL}">${metObject.objectURL}</a>
 
               </div>
 

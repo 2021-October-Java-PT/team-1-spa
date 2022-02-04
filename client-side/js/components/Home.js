@@ -1,7 +1,7 @@
 import artImg from "../../images/art.png";
 import brainBreakImg from "../../images/brainBreak.png";
 import fishClickerImg from "../../images/fishClicker.png";
-import resourcesImg from "../../images/resources.png";
+import resourcesImg from "../../images/img-day.png";
 import scienceImg from "../../images/science.png";
 import techImg from "../../images/tech.png";
 
