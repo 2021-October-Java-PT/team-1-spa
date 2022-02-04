@@ -1,3 +1,5 @@
+import techBox from "../../images/tech-box.png";
+
 export default function ProgrammingResources(programmingResources) {
     return `
     <div class="api-page-container">
@@ -6,13 +8,18 @@ export default function ProgrammingResources(programmingResources) {
     </div>
     <div class="api-topics">
         <ul>
-            ${programmingResources.map(programmingResource => {
-            return `
-                <li class="programming-resource__list btn btn-info">${programmingResource.name}
-                    <input type="hidden" id="programmingLanguageId" value="${programmingResource.id}">
-                </li>
-            `;
-        }).join("")}
+        <li class="btn btn-info topic-list"><img class="programming-resource topic-tile" src="${techBox}">
+           <input type="hidden" id="programmingLanguageId" value="${programmingResources.id}">
+        </li>
+        <li class="btn btn-info topic-list"><img class="programming-resource topic-tile" src="${techBox}">
+           <input type="hidden" id="programmingLanguageId" value="${programmingResources.id}">
+        </li>
+        <li class="btn btn-info topic-list"><img class="programming-resource topic-tile" src="${techBox}">
+           <input type="hidden" id="programmingLanguageId" value="${programmingResources.id}">
+        </li>
+        <li class="btn btn-info topic-list"><img class="programming-resource topic-tile" src="${techBox}">
+           <input type="hidden" id="programmingLanguageId" value="${programmingResources.id}">
+        </li>
         </ul>
     </div>
     <div class="pr-form-body col-xs-1 center-block">

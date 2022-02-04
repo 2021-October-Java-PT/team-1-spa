@@ -14,10 +14,6 @@ import apiHelpers from "./api-helpers/apiHelpers.js";
 
 const app = document.querySelector("#app");
 
-let keywordsWomen = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
-let keywordsMen = ['Charlie Bolden', 'Neil Armstrong', 'Guion Bluford', 'John Glenn', 'Ellison Onizuka', 'Franklin Chang-Diaz', 'John Herrington', 'Michael López-Alegría', 'Ellison Onizuka'];
-let keywordsPlanet = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
-let keywordsNasaMisc = ['Hubble', 'Milky Way', 'Orion', 'Big Bang', 'Galaxies', 'Asteroid', 'Stars' ];
 
 let artMask = ["7581", "318622", "310279", "547257", "22739", "311950", "35152" ];
 let artMusic= ["503530", "561518", "310563", "5394", "546194", "310532" ];
@@ -73,14 +69,12 @@ function navContact() {
 }
 
 
+
 function navArt(){
   const artElem =  document.querySelector("#artTile");
   artElem.addEventListener("click", ()=> {
     app.innerHTML = ArtResources();
     retrieveArtResources();
-  });
-  
-}
 
 function retrieveArtResources() {
   app.addEventListener("click", (event) => {
@@ -106,22 +100,6 @@ function retrieveArtResources() {
   })
 }
 
-// function navArt() {
-//   const lingCover = document.querySelector("#artTile");
-//   lingCover.addEventListener("click", () => {
-//     let artRandom = ["7581", "717574", "310563", "318622", "310279", "547257","324029", "75831", "49381" ];
-//     apiHelpers.getRequest(
-//       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${
-//         artRandom[Math.floor(Math.random() * 9)]
-//       }`,
-//       (metObject) => {
-//         console.log("MET OBJECT", metObject);
-//         app.innerHTML = Art(metObject);
-//       }
-//     );
-//   });
-// }
-
 //Lyzz's function
 function navScience() {
   const scienceElem = document.querySelector("#scienceTile");
@@ -130,7 +108,6 @@ function navScience() {
     retrieveSpaceResource();
   });
 }
-
 
 function navXtraResource() {
   const resourcesElem = document.querySelector("#resourcesTile");
@@ -144,7 +121,12 @@ function navXtraResource() {
 
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
-    const spaceId = document.querySelector("#spaceId").value;
+    // const spaceId = document.querySelector("#spaceId").value;
+    let keywordsWomen = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
+    let keywordsMen = ['Charlie Bolden', 'Neil Armstrong', 'Guion Bluford', 'John Glenn', 'Ellison Onizuka', 'Franklin Chang-Diaz', 'John Herrington', 'Michael López-Alegría', 'Ellison Onizuka'];
+    let keywordsPlanet = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
+    let keywordsNasaMisc = ['Hubble', 'Milky Way', 'Orion', 'Big Bang', 'Galaxies', 'Asteroid', 'Stars'];
+
     if (event.target.classList.contains("space__activityWomen")) {
       let randIdx = Math.floor(Math.random() * keywordsWomen.length);
       let value = keywordsWomen[randIdx];
@@ -153,7 +135,7 @@ function retrieveSpaceResource() {
       apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
         app.innerHTML = SpaceResource(spaceResource);
       });
-    } 
+    }
     if (event.target.classList.contains("space__activityMen")) {
       let randIdx = Math.floor(Math.random() * keywordsMen.length);
       let value = keywordsMen[randIdx];
@@ -162,7 +144,7 @@ function retrieveSpaceResource() {
       apiHelpers.getRequest(`https://images-api.nasa.gov/search?q=${value}`, spaceResource => {
         app.innerHTML = SpaceResource(spaceResource);
       });
-    } 
+    }
     if (event.target.classList.contains("space__activityPlanets")) {
       let randIdx = Math.floor(Math.random() * keywordsPlanet.length);
       let value = keywordsPlanet[randIdx];
@@ -237,6 +219,8 @@ function navTechnology() {
       "http://localhost:8080/api/programming-resources",
       (programmingResources) => {
         app.innerHTML = ProgrammingResources(programmingResources);
+        console.log(programmingResources);
+        console.log(programmingResources[0]);
       }
     );
     renderProgrammingResource();
@@ -247,16 +231,18 @@ function navTechnology() {
 //Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("programming-resource__list")) {
-      const programmingResourceId = event.target.querySelector(
-        "#programmingLanguageId"
-      ).value;
-      apiHelpers.getRequest(
-        `http://localhost:8080/api/programming-resources/${programmingResourceId}`,
-        (programmingResource) => {
-          app.innerHTML = ProgrammingResource(programmingResource);
-        }
-      );
+
+    if (event.target.classList.contains("programming-resource")) {
+      // const programmingResourceId = event.target.querySelector("#programmingLanguageId").value;
+      const programmingResourceIdx = Math.floor(Math.random() * 9);
+      
+
+      apiHelpers.getRequest(`http://localhost:8080/api/programming-resources/${programmingResourceIdx}`, (programmingResource) => {
+        app.innerHTML = ProgrammingResource(programmingResource);
+        console.log(programmingResource);
+        console.log(programmingResourceIdx);
+
+      });
       returnToAllResources();
       addProgramingResourceToAPI();
     }
@@ -294,15 +280,14 @@ function addProgramingResourceToAPI() {
       ).value;
 
       apiHelpers.postRequest(
-        "http://localhost:8080/api/programming-resources/add-resource",
-        {
+        "http://localhost:8080/api/programming-resources/add-resource", {
           name: addResourceName,
           description: addResourceDescription,
           url: addResourceUrl,
           logo: addResourceLogo,
         },
         (programmingResources) =>
-          (app.innerHTML = ProgrammingResources(programmingResources))
+        (app.innerHTML = ProgrammingResources(programmingResources))
       );
     }
   });
