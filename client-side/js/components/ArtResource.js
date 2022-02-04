@@ -3,6 +3,7 @@ export default function ArtResources(artResource) {
   console.log(a);
   return `
     <div>
+                  
                   <h1> Department </h1>
                   <h2 id="pieceTitle">${artResource.department}<h2>
                 
@@ -18,15 +19,17 @@ export default function ArtResources(artResource) {
                   <h2>What culture is this from?</h2>
                    <p>${artResource.culture}</p>
                   
-                   <h2>Other Details</h2>
-                   <p>Dimensions: ${artResource.dimensions}</p>
                   
                    <h2>When was the art made?</h2>
                    <p>${artResource.objectDate}</p>
+
+                   <h2>Other Details</h2>
+                   <p>Dimensions: ${artResource.dimensions}</p>
     
-                   <h2>Learn More At the Met Museum Website</h2>
-                   <h4>Copy and past in url box, please!</h4>
+                   <h2>Learn more at the Met Museum website!</h2>
                    <a href="${artResource.objectURL}">${artResource.objectURL}</a>
+
+                   <button class="returnArt btn btn-info">Return</button>
     </div>
     `;
 }

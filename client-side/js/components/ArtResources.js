@@ -8,6 +8,12 @@ export default function ArtResources() {
                 <input type="hidden" id="artId" value=""></li>
             <li class="btn btn-info"><img src="${artBox}" class="artMusic">
                 <input type="hidden" id="artId" value=""></li>
+            <li class="btn btn-info"><img src="${artBox}" class="artArch">
+                <input type="hidden" id="artId" value=""></li>
+            <li class="btn btn-info"><img src="${artBox}" class="artStat">
+                <input type="hidden" id="artId" value=""></li>
+
+        </ul>
            
     </div>    
    `;
