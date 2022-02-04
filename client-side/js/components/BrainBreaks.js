@@ -50,6 +50,4 @@ export default function BrainBreaks() {
   }
 
 //Boredom API https://www.boredapi.com/documentation
-//Madison push
-
 
