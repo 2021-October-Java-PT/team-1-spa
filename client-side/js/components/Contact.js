@@ -1,7 +1,8 @@
+import contactJAC from "../../pages/contactJAC.html";
 
 export default function Contact() {
   return `
-  
+  <h1><a href="${contactJAC}">Visit JAC Enterprises</a></h1>
   <div class="container-fluid api-button text-center"> 
   <h1 class="feedBack"> Give us your feedback, please! </h1>
   <p class=para > We would love to know how we are doing or if there is something
