@@ -2,9 +2,10 @@ import apiHelpers from "../api-helpers/apiHelpers.js";
 
 export default function XtraResource(xtraResource) {
     const videoSection = `
-    <div class="video-div">
-    <iframe id="videoLink" width="500" src=""></iframe>
-    </div>`;
+    <video width="320" height="240" controls>
+    <source src="${xtraResource.url}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>`;
 
     const imageSection = `
     <a id="NASAImg" href="" target="-blank">
