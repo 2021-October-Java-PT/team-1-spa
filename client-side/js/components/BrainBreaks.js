@@ -1,3 +1,14 @@
+import busywork from "../../images/busywork-box.png";
+import charity from "../../images/charity-box.png";
+import cooking from "../../images/cooking-box.png";
+import diy from "../../images/diy-box.png";
+import education from "../../images/education-box.png";
+import music from "../../images/music-box.png";
+import recreation from "../../images/recreation-box.png";
+import relax from "../../images/relax-box.png";
+import social from "../../images/social-box.png";
+import techBox from "../../images/tech-box.png";
+
 export default function BrainBreaks() {
     return `
     <div class="api-page-container">
@@ -5,7 +16,8 @@ export default function BrainBreaks() {
         <h1>Let's Take a Break!</h1>
     </div>
     <div class="api-topics">
-        <ul>     
+        <h2>Select activity by type:</h2>
+        <ul>                    
             <li class="brain-breaks__activity btn btn-info topic-list">education
                 <input type="hidden" id="breakId" value="education"></li>
             <li class="brain-breaks__activity btn btn-info topic-list">recreational
@@ -25,7 +37,7 @@ export default function BrainBreaks() {
             <li class="brain-breaks__activity btn btn-info topic-list">busywork
                 <input type="hidden" id="breakId" value="busywork"></li>
         </ul>
-        <h2>Number of participants:</h2>
+        <h2>Or number of participants:</h2>
         <ul>
             <li class="brain-breaks__participants btn btn-info topic-list">1
                 <input type="hidden" id="breakId" value="1"></li>
