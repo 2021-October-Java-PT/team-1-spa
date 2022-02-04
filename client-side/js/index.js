@@ -115,6 +115,7 @@ function retrieveArtResources() {
       app.innerHTML = ArtResource(artResource)
     });
    }
+   
 
    if (event.target.classList.contains ("artStat")){
     let artRand = Math.floor(Math.random()* artStat.length);
