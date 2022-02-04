@@ -1,8 +1,11 @@
+import brainbnr from "../../images/brainbkBanner.png";
+
 export default function BrainBreaks() {
     return `
     <div class="api-page-container">
     <div class="api-title">
         <h1>Let's Take a Break!</h1>
+        <img src="${brainbnr}" class="sci-banner">
     </div>
     <div class="api-topics">
         <h2>Select activity by type:</h2>
