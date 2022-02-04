@@ -22,7 +22,7 @@ export default function ProgrammingResources(programmingResources) {
         </li>
         </ul>
     </div>
-    <div class="pr-form-body col-xs-1 center-block">
+    <div class="pr-form-body col-xs-1 center-block container-fluid">
         <div class="pr-form-cont">
             <div class="brand-logo"></div>
                 <form class="add-programming-resource inputs">

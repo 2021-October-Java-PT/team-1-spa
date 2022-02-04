@@ -1,3 +1,5 @@
+import edbox from "../../images/education-box.png";
+
 export default function BrainBreaks() {
     return `
     <div class="api-page-container">
@@ -5,7 +7,7 @@ export default function BrainBreaks() {
         <h1>Let's Take a Break!</h1>
     </div>
     <div class="api-topics">
-        <ul>     
+        <ul>    
             <li class="brain-breaks__activity btn btn-info topic-list">education
                 <input type="hidden" id="breakId" value="education"></li>
             <li class="brain-breaks__activity btn btn-info topic-list">recreational
