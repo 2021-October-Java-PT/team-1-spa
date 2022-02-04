@@ -30,7 +30,7 @@ export default function ArtResources(artResource) {
                    <h2>Learn more at the Met Museum website!</h2>
                    <a href="${artResource.objectURL}">${artResource.objectURL}</a>
 
-                   <button class="returnArt btn btn-info">Return</button>
+                   <button class="returnArt btn btn-info">Return to Art Topics</button>
     </div>
     `;
 }
