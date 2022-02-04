@@ -7,7 +7,6 @@ import music from "../../images/music-box.png";
 import recreation from "../../images/recreation-box.png";
 import relax from "../../images/relax-box.png";
 import social from "../../images/social-box.png";
-import techBox from "../../images/tech-box.png";
 
 export default function BrainBreaks() {
     return `
