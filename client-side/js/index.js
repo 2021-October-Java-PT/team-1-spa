@@ -15,13 +15,6 @@ import apiHelpers from "./api-helpers/apiHelpers.js";
 const app = document.querySelector("#app");
 
 
-let artMask = ["7581", "318622", "310279", "547257", "22739", "311950", "35152"];
-let artMusic = ["503530", "561518", "310563", "5394", "546194", "310532" ];
-let artArch = ["452817", "449028", "347552", "9997", "470599","202127" ];
-let artStat = ["196910", "231788", "232047", "57612", "200567","38146"];
-
-
-
 buildPage();
 
 function buildPage() {
@@ -58,7 +51,6 @@ function navHome() {
 function navAbout() {
   const aboutElem = document.querySelector(".navbar-about");
   aboutElem.addEventListener("click", () => {
-    // console.log("button clicked");
     app.innerHTML = About();
   });
 }
@@ -70,20 +62,25 @@ function navContact() {
   });
 }
 
-function navArt(){
-  const artElem =  document.querySelector("#artTile");
-  artElem.addEventListener("click", ()=> {
+function navArt() {
+  const artElem = document.querySelector("#artTile");
+  artElem.addEventListener("click", () => {
     app.innerHTML = ArtResources();
     retrieveArtResources();
   });
-  
+
 }
 
 function retrieveArtResources() {
   app.addEventListener("click", (event) => {
+    let artMask = ["7581", "318622", "310279", "547257", "22739", "311950", "35152"];
+    let artMusic = ["503530", "561518", "310563", "5394", "546194", "310532"];
+    let artArch = ["452817", "449028", "347552", "9997", "470599", "202127"];
+    let artStat = ["196910", "231788", "232047", "57612", "200567", "38146"];
     const artId = document.querySelector("#artId").value;
-    if (event.target.classList.contains("artMask")){
-      let artRand = Math.floor(Math.random()* artMask.length);
+
+    if (event.target.classList.contains("artMask")) {
+      let artRand = Math.floor(Math.random() * artMask.length);
       let value = artMask[artRand];
       console.log(artRand);
       console.log(value);
@@ -91,35 +88,35 @@ function retrieveArtResources() {
         app.innerHTML = ArtResource(artResource)
       });
     }
-   if (event.target.classList.contains ("artMusic")){
-    let artRand = Math.floor(Math.random()* artMusic.length);
-    let value = artMusic[artRand];
-    console.log(artRand);
-    console.log(value);
-    apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
-      app.innerHTML = ArtResource(artResource)
-    });
-   }
+    if (event.target.classList.contains("artMusic")) {
+      let artRand = Math.floor(Math.random() * artMusic.length);
+      let value = artMusic[artRand];
+      console.log(artRand);
+      console.log(value);
+      apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
+        app.innerHTML = ArtResource(artResource)
+      });
+    }
 
-   if (event.target.classList.contains ("artArch")){
-    let artRand = Math.floor(Math.random()* artArch.length);
-    let value = artArch[artRand];
-    console.log(artRand);
-    console.log(value);
-    apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
-      app.innerHTML = ArtResource(artResource)
-    });
-   }
+    if (event.target.classList.contains("artArch")) {
+      let artRand = Math.floor(Math.random() * artArch.length);
+      let value = artArch[artRand];
+      console.log(artRand);
+      console.log(value);
+      apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
+        app.innerHTML = ArtResource(artResource)
+      });
+    }
 
-   if (event.target.classList.contains ("artStat")){
-    let artRand = Math.floor(Math.random()* artStat.length);
-    let value = artStat[artRand];
-    console.log(artRand);
-    console.log(value);
-    apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
-      app.innerHTML = ArtResource(artResource)
-    });
-   }
+    if (event.target.classList.contains("artStat")) {
+      let artRand = Math.floor(Math.random() * artStat.length);
+      let value = artStat[artRand];
+      console.log(artRand);
+      console.log(value);
+      apiHelpers.getRequest(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${value}`, artResource => {
+        app.innerHTML = ArtResource(artResource)
+      });
+    }
   })
   returnToArt();
 }
@@ -129,15 +126,6 @@ function returnToArt() {
     if (event.target.classList.contains("returnArt")) {
       app.innerHTML = ArtResources();
     }
-  });
-}
-
-//Lyzz's function
-function navScience() {
-  const scienceElem = document.querySelector("#scienceTile");
-  scienceElem.addEventListener("click", () => {
-    app.innerHTML = SpaceResources();
-    retrieveSpaceResource();
   });
 }
 
@@ -151,9 +139,16 @@ function navXtraResource() {
   });
 }
 
+function navScience() {
+  const scienceElem = document.querySelector("#scienceTile");
+  scienceElem.addEventListener("click", () => {
+    app.innerHTML = SpaceResources();
+    retrieveSpaceResource();
+  });
+}
+
 function retrieveSpaceResource() {
   app.addEventListener("click", (event) => {
-    // const spaceId = document.querySelector("#spaceId").value;
     let keywordsWomen = ['Sally Ride', 'females', 'Hidden Figures', 'Mukai Chiaki', 'Pamela Melroy', 'Stephanie Wilson', 'Jessica Watkins', 'Wang Yaping', 'Mae C. Jemison'];
     let keywordsMen = ['Charlie Bolden', 'Neil Armstrong', 'Guion Bluford', 'John Glenn', 'Ellison Onizuka', 'Franklin Chang-Diaz', 'John Herrington', 'Michael López-Alegría', 'Ellison Onizuka'];
     let keywordsPlanet = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
@@ -210,9 +205,6 @@ function returnToScience() {
 function navBrainBreaks() {
   const brainBreakElem = document.querySelector("#brainBreakTile");
   brainBreakElem.addEventListener("click", () => {
-    // const input = prompt("Please enter an activity type of " +
-    // "education, recreational, social, diy, charity, cooking, relaxation, music, or busywork", "education");
-    // alert(input);
     app.innerHTML = BrainBreaks();
     renderBrainBreak();
   });
@@ -242,8 +234,6 @@ function returnToBreaks() {
   });
 }
 
-//Madison's Functions
-//Function to navigate to all ProgrammingResources page by clicking on tile
 function navTechnology() {
   const technologyElem = document.querySelector("#technologyTile");
   technologyElem.addEventListener("click", () => {
@@ -260,14 +250,13 @@ function navTechnology() {
   });
 }
 
-//Function to navigate to individual ProgrammingResource page by clicking on it's name on all ProgrammingResources page
 function renderProgrammingResource() {
   app.addEventListener("click", (event) => {
 
     if (event.target.classList.contains("programming-resource")) {
       // const programmingResourceId = event.target.querySelector("#programmingLanguageId").value;
       const programmingResourceIdx = Math.floor(Math.random() * 9);
-      
+
 
       apiHelpers.getRequest(`http://localhost:8080/api/programming-resources/${programmingResourceIdx}`, (programmingResource) => {
         app.innerHTML = ProgrammingResource(programmingResource);
@@ -281,7 +270,6 @@ function renderProgrammingResource() {
   });
 }
 
-//Function to return to all ProgrammingResources page by clicking on button in individual ProgrammingResource page
 function returnToAllResources() {
   app.addEventListener("click", (event) => {
     if (event.target.classList.contains("returnResources")) {

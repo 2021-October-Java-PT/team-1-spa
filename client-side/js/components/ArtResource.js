@@ -1,6 +1,7 @@
 export default function ArtResources(artResource) {
   let a = Math.floor(Math.random() * 6);
   console.log(a);
+
   return `
     <div>
                   

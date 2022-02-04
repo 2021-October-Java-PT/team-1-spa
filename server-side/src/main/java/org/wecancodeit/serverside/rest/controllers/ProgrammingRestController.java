@@ -44,7 +44,6 @@ public class ProgrammingRestController {
         }
 
         return "redirect:/api/programming-resources";
-//        return (Collection<ProgrammingResource>) programmingRepo.findAll();
     }
 
 }
